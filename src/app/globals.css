@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  --tw-bg-opacity: 1;
+    background-color: rgb(239 239 247 / var(--tw-bg-opacity));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
