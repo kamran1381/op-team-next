@@ -1,32 +1,36 @@
 import React from 'react'
 import Image from 'next/image'
-export default function page() {
+import LoginForm from '@/components/loginform';
 
-  return (
-    <>
-      <div className='w-full flex flex-col justify-center items-center p-5 relative'>
-        <div className='w-full max-w-7xl bg-[#DDE5FA] h-[100vh] flex items-center justify-center rounded-r-xl rounded-l-2xl flex-row'>
+const Login = () => {
 
-          <div className='w-1/5 flex flex-col justify-center items-center'>
-            <button type="button" className="text-black bg-[#FFFFFF] font-medium rounded-lg text-sm px-5 py-4 text-center mb-2">ثبت نام</button>
-            <button type="button" className="text-black bg-[#FFFFFF] font-medium rounded-lg text-sm px-5 py-4 text-center">ورود</button>
-          </div>
+    return (
+        <>
+            <div className='w-full flex flex-col justify-center items-center p-5 relative'>
+                <div className='w-full max-w-7xl bg-[#DDE5FA] h-screen flex justify-center rounded-2xl'>
+                    <div className='w-3/4 flex justify-center items-center space-x-3 space-x-reverse'>
 
-          <div className='w-4/5'>
+                        <div className='w-1/5 flex flex-col justify-center items-center space-y-5'>
+                            <button type="button" className="text-slate-100 bg-blue-700 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md text-center ">ثبت نام</button>
+                            <button type="button" className="text-indigo-950 bg-slate-100 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md text-center ">ورود</button>
+                        </div>
 
-            <div className='w-[720px] h-[370px] bg-[#F8FAFF] rounded-[25px] shadow-inner'>
-              <div className='py-10 flex items-center'>
-                <img src='/assets/images/logo.png' loading='lazy' width={70} height={70} className='px-2' alt='لوگوی او پی تیم' />
-                <div className='text-center'>
-                  <span className='text-base px-2'>برای سفارش سایت و ثبت درخواست لطفا وارد حساب کاربری خود شوید.</span>
+                        <div className='w-4/5 bg-slate-100 rounded-3xl shadow-md shadow-gray-400 p-5 flex flex-col space-y-5 items-center'>
+                            <div className='flex w-full items-center'>
+                                <div className='w-20 h-16 relative overflow-hidden rounded-xl shadow-md shadow-gray-500'>
+                                    <Image src='/assets/images/logo.png' className='object-cover' loading='lazy' fill alt='لوگوی او پی تیم' />
+                                </div>
+                                <span className='w-full text-center font-extrabold text-indigo-950'>برای سفارش سایت و ثبت درخواست لطفا وارد حساب کاربری خود شوید.</span>
+                            </div>
+                            <LoginForm />
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-    </>
+        </>
 
-  )
+    )
 }
+
+export default Login;

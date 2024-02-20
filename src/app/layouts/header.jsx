@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image'
+import Link from 'next/link'
 import { TbLogin } from "react-icons/tb";
 
 
@@ -22,10 +23,11 @@ const Header = () => {
 
     return (
         <div className='w-full flex-col flex justify-center items-center p-5 relative'>
+            
             <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md z-10'>
-                <div className='w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl flex justify-center items-center'>
+                <Link href='/' className='w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl flex justify-center items-center'>
                     <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
-                </div>
+                </Link>
                 <div className='w-11/12 bg-slate-100 h-full rounded-xl flex items-center justify-between'>
                     <div className='w-2/5 flex items-center justify-between pr-10'>
                         {linkData.map(item => (
