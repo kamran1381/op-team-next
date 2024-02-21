@@ -6,11 +6,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
 
+
 const Footer = () => {
     return (
         <div className='w-full flex justify-center bg-gradient-to-bl from-[#00FFF0] to-[#0012B7]'>
             <div className='w-full max-w-7xl flex flex-col  py-5 space-y-3'>
-                <div className=' grid grid-cols-4  py-8 gap-4'>
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-8 gap-4'>
                     <div className='flex flex-col pt-2'>
                         <div className='pt-2'>
                             <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
@@ -57,16 +58,40 @@ const Footer = () => {
                     </div>
                     <div className='pt-2'>
                         <div className='flex flex-col py-4'>
-                          <span className='text-white font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
+                            <span className='text-white font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
 
-                          <span className='text-sm text-slate-200 pt-2'>
-                          تیم خوش ذوق و خلاق در حوزه برنامه نویسی و طراحی سایت
-                          </span>
+                            <span className='text-sm text-slate-200 pt-2'>
+                                تیم خوش ذوق و خلاق در حوزه برنامه نویسی و طراحی سایت
+                            </span>
                         </div>
+
+
                     </div>
-                    <div className='pt-2'>
-                        
+
+                    <div className=' lg:col-span-full  flex justify-end'>
+                        <div className="flex justify-center items-center bg-gray-200 rounded-full px-8 py-5">
+                            <div className="flex flex-col items-center relative">
+                                <div className="space-y-3">
+                                    <span className="text-center text-sm">
+                                        برای سفارش سایت و ارسال order لطفا وارد حساب کاربری خود شوید.
+                                    </span>
+                                    <div className="flex items-center relative">
+                                        <input
+                                            type="text"
+                                            className="rounded-full py-2 px-2 border outline-none  w-full shadow-sm"
+                                            placeholder="ایمیل تان را وارد کنید"
+                                            
+                                        />
+                                        <button className="absolute top-[-6px] left-[-6px] rounded-full bg-blue-500 text-white px-4 py-2 m-2 hover:bg-blue-600 transition-colors duration-300">
+                                            عضویت
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <span className='w-full text-slate-100 border-t border-slate-100 text-center pt-5'>

@@ -4,7 +4,7 @@ const NotFound = () => {
     return (
         <div>
             {/* complete here */}
-            noting here
+            {/* this is not found page */}
         </div>
     );
 }
