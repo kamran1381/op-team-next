@@ -4,7 +4,7 @@ const Loading = () => {
     return (
         <div>
             {/* complete here */}
-            loading...
+           loading page
         </div>
     );
 }
