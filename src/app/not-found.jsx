@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Loading = () => {
+const NotFound = () => {
     return (
         <div>
             {/* complete here */}
-           loading page
+            {/* this is not found page */}
         </div>
     );
 }
 
-export default Loading;
+export default NotFound;

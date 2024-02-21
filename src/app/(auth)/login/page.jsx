@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import LoginForm from '@/components/loginform';
 
 const Login = () => {
@@ -11,8 +12,8 @@ const Login = () => {
                     <div className='w-3/4 flex justify-center items-center space-x-3 space-x-reverse'>
 
                         <div className='w-1/5 flex flex-col justify-center items-center space-y-5'>
-                            <button type="button" className="text-slate-100 bg-blue-700 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md text-center ">ثبت نام</button>
-                            <button type="button" className="text-indigo-950 bg-slate-100 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md text-center ">ورود</button>
+                            <Link href='/login' className="text-slate-100 bg-blue-700 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md flex justify-center items-center hover:bg-blue-500 transition-colors ">ورود</Link>
+                            <Link href='/signup' className="text-indigo-950 bg-slate-100 font-extrabold rounded-2xl w-[154px] h-[94px] shadow-gray-400 shadow-md flex justify-center items-center hover:bg-blue-500 hover:text-white transition-colors ">ثبت نام</Link>
                         </div>
 
                         <div className='w-4/5 bg-slate-100 rounded-3xl shadow-md shadow-gray-400 p-5 flex flex-col space-y-5 items-center'>
