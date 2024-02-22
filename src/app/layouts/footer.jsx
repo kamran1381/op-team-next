@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { CiClock2 } from "react-icons/ci";
 import { FaPhone } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
 
@@ -10,87 +10,97 @@ import { FaTelegram } from "react-icons/fa6";
 const Footer = () => {
     return (
         <div className='w-full flex justify-center bg-gradient-to-bl from-[#00FFF0] to-[#0012B7]'>
-            <div className='w-full max-w-7xl flex flex-col  py-5 space-y-3'>
-                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-8 gap-4'>
-                    <div className='flex flex-col pt-2'>
-                        <div className='pt-2'>
-                            <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
-                            <div className='py-5 space-y-7'>
-                                <span className='text-slate-100 border-slate-100  '>
-                                    اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمیگزینند.
-                                </span>
-                                <div className='flex items-center gap-2'>
-                                    <FaPhone size={22} color='white' />
-                                    <span className='text-slate-50 text-base'>0912201986</span>
-                                </div>
+            <div className='w-full max-w-7xl flex flex-col py-5 space-y-3'>
+                <div className='w-full flex items-start justify-between py-20'>
 
+                    <div className='flex flex-col items-start space-y-10'>
 
-                                <div className='flex items-center gap-2'>
-                                    <CiClock2 size={25} color='white' />
-                                    <span className='text-slate-50 text-base'>شنبه تا چهارشنبه </span>
-                                </div>
-
-                                <div className='flex items-center space-x-3'>
-                                    <div></div>
-                                    <FaLinkedin color='white' size={20} />
-                                    <FaInstagram color='white' size={20} />
-                                    <FaTelegram color='white' size={20} />
-                                </div>
-
-
+                        <div className='flex flex-col items-start space-y-3'>
+                            <div className='flex justify-center items-center w-[100px] h-[80px] rounded-2xl overflow-hidden shadow-sm shadow-slate-800 relative'>
+                                <Image src='/assets/images/logo.png' loading='lazy' className='object-cover' fill alt='لوگوی او پی تیم' />
                             </div>
-
-                        </div>
-
-                    </div>
-                    <div className='pt-2'>
-                        <div className='flex flex-col items-center'>
-                            <span className='text-white text-base font-bold border-b border-slate-100  py-3'>
-                                بخش های سایت
+                            <span className='text-slate-100 border-slate-100 '>
+                                اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمیگزینند.
                             </span>
-                            <div className='flex flex-col py-3 space-y-5 '>
-                                <span className='text-slate-300'>سفارش سایت </span>
-                                <span className='text-slate-300'>درباره ما  </span>
-                                <span className='text-slate-300'>پروژه های ما  </span>
+                        </div>
 
+                        <div className='flex flex-col space-y-3 items-start'>
+                            <div className='flex items-center space-x-2 space-x-reverse'>
+                                <div className='bg-white p-1 rounded-xl shadow-md'>
+                                    <FaPhone size={25} className='bg-slate-900 text-white p-1 rounded-full shadow-md' />
+                                </div>
+                                <span className='text-slate-50 text-base'>09031864296</span>
                             </div>
+
+
+                            <div className='flex items-center space-x-2 space-x-reverse'>
+                                <CiClock2 size={35} className='bg-white p-1 rounded-xl shadow-md' />
+                                <span className='text-slate-50 text-base'>شنبه تا چهارشنبه </span>
+                            </div>
+
+                        </div>
+
+                        <div className='flex items-center space-x-3 space-x-reverse'>
+                            <FaInstagram className='text-white bg-gradient-to-tr p-px shadow-md from-yellow-500 to-purple-600 rounded-md' size={27} />
+                            <FaTelegram className='text-sky-500 bg-white rounded-full  shadow-md' size={27} />
+                            <FaLinkedinIn color='white' size={24} />
+                        </div>
+
+                    </div>
+
+
+                    <div className='flex flex-col items-start space-y-5'>
+                        <span className='flex justify-start items-start flex-col space-y-2'>
+                            <span className='text-white text-base font-bold'>بخش های سایت</span>
+                            <div className='w-7 h-1 rounded-full bg-white'></div>
+                        </span>
+                        <div className='flex flex-col space-y-3'>
+                            <span className='text-slate-200 font-semibold'>سفارش سایت </span>
+                            <span className='text-slate-200 font-semibold'>درباره ما  </span>
+                            <span className='text-slate-200 font-semibold'>پروژه های ما  </span>
+
                         </div>
                     </div>
-                    <div className='pt-2'>
-                        <div className='flex flex-col py-4'>
+
+                    <div className='flex flex-col space-y-10'>
+                        <div className='w-2/3 flex flex-col items-start space-y-2'>
                             <span className='text-white font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
 
-                            <span className='text-sm text-slate-200 pt-2'>
+                            <span className='text-sm text-slate-200 '>
                                 تیم خوش ذوق و خلاق در حوزه برنامه نویسی و طراحی سایت
                             </span>
                         </div>
 
 
-                    </div>
-
-                    <div className=' lg:col-span-full  flex justify-end'>
-                        <div className="flex justify-center items-center bg-gray-200 rounded-full px-8 py-5">
-                            <div className="flex flex-col items-center relative">
-                                <div className="space-y-3">
-                                    <span className="text-center text-sm">
+                        <div className=' w-full flex justify-end'>
+                            <div className="flex justify-center items-center bg-slate-100 rounded-3xl px-8 py-6">
+                                <div className="flex flex-col items-center space-y-5 ">
+                                    <span className="text-center text-sm w-full text-indigo-900 font-bold">
                                         برای سفارش سایت و ارسال order لطفا وارد حساب کاربری خود شوید.
                                     </span>
-                                    <div className="flex items-center relative">
+
+                                    <div className="flex items-center relative w-full">
                                         <input
                                             type="text"
-                                            className="rounded-full py-2 px-2 border outline-none  w-full shadow-sm"
+                                            className="rounded-full py-2 px-4 border outline-none  w-full shadow-sm"
                                             placeholder="ایمیل تان را وارد کنید"
-                                            
+
                                         />
-                                        <button className="absolute top-[-6px] left-[-6px] rounded-full bg-blue-500 text-white px-4 py-2 m-2 hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="absolute -top-2 -left-2 rounded-full bg-blue-500 text-white px-4 py-2 m-2 hover:bg-blue-600 transition-colors duration-300">
                                             عضویت
                                         </button>
                                     </div>
+
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
+
+
+
+
 
                 </div>
 
