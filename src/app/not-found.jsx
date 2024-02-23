@@ -3,11 +3,7 @@ import Link from 'next/link';
 
 const NotFound = () => {
     return (
-<<<<<<< Updated upstream
-        <div>
-            {/* complete here */}
-            {/* this is not found page */}
-=======
+
         <div className='w-full flex flex-col justify-center items-center p-5 relative'>
             <div className='w-full max-w-7xl bg-[#DDE5FA] h-screen flex justify-center rounded-2xl'>
                 <main class='flex items-center justify-center w-full min-h-screen py-8 text-gray-900 page md:py-16 '>
@@ -26,7 +22,7 @@ const NotFound = () => {
                     </div>
                 </main>
             </div>
->>>>>>> Stashed changes
+
         </div>
     );
 }
