@@ -1,7 +1,7 @@
+import React from 'react';
 import Sectionone from '@/components/homePageSections/sectionone';
 import Sectionthree from '@/components/homePageSections/sectionthree';
 import Sectiontwo from '@/components/homePageSections/sectiontwo';
-import React from 'react';
 
 const Home = () => {
   return (

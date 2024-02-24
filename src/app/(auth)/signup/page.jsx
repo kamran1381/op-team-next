@@ -1,7 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-
-import Signupform from '@/components/signupform'
 import Link from 'next/link'
 import SignupForm from '@/components/signupform'
 const SignUp = () => {
@@ -34,5 +32,5 @@ const SignUp = () => {
     )
 }
 
-export default Signup
+export default SignUp
 
