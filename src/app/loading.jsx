@@ -3,6 +3,7 @@ import React from 'react'
 const Loading = () => {
     return (
 
+
         <div className='w-full flex flex-col justify-center items-center p-5 relative'>
             <div className='w-full max-w-7xl bg-[#DDE5FA] h-screen flex justify-center rounded-2xl'>
                 <div className='flex flex-col justify-center items-center space-y-4'>
@@ -14,6 +15,7 @@ const Loading = () => {
                         </svg>
                     </div>
                 </div>
+
 
             </div>
         </div>

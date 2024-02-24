@@ -24,7 +24,7 @@ const Footer = () => {
                             </span>
                         </div>
 
-                        <div className='flex flex-col space-y-3 items-start'>
+                        <div className='flex flex-col space-y-3 items-center'>
                             <div className='flex items-center space-x-2 space-x-reverse'>
                                 <div className='bg-white p-1 rounded-xl shadow-md'>
                                     <FaPhone size={25} className='bg-slate-900 text-white p-1 rounded-full shadow-md' />
