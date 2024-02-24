@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Sectiontwo = () => {
     return (
-        <div className='bg-slate-100 w-full flex justify-center'>
+        <div id='aboutUs' className='bg-slate-100 w-full flex justify-center'>
             <div className='w-full max-w-7xl flex items-start space-x-20 space-x-reverse'>
                 <div className='w-1/3 h-[800px] flex justify-center items-center relative'>
                     <div className='w-[430px] h-[280px] rounded-3xl bg-gradient-to-b from-[#18DBE7] to-[#185CE7] flex justify-center items-center translate-y-1/2 -top-6 right-6 absolute z-0'>
