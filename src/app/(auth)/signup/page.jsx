@@ -5,8 +5,8 @@ import SignupForm from '@/components/signupform'
 const SignUp = () => {
     return (
         <>
-            <div className='w-full flex flex-col justify-center items-center p-5 relative'>
-                <div className='w-full max-w-7xl bg-[#DDE5FA] h-screen flex justify-center rounded-2xl'>
+            <div className='w-full flex flex-col justify-center items-center p-5 '>
+                <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl'>
                     <div className='w-3/4 flex justify-center items-center space-x-3 space-x-reverse'>
 
                         <div className='w-1/5 flex flex-col justify-center items-center space-y-5'>

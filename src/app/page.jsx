@@ -1,8 +1,8 @@
 import React from 'react';
-import Sectionone from '@/components/homePageSections/sectionone';
-import Sectionthree from '@/components/homePageSections/sectionthree';
-import Sectiontwo from '@/components/homePageSections/sectiontwo';
-import Sectionfour from '@/components/homePageSections/sectionfour';
+import Sectionone from '@/app/home/sectionone';
+import Sectionthree from '@/app/home/sectionthree';
+import Sectiontwo from '@/app/home/sectiontwo';
+import Sectionfour from '@/app/home/sectionfour';
 
 const Home = () => {
   return (
