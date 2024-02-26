@@ -3,6 +3,7 @@ import Sidebar from '../layouts/sidebar';
 import Image from 'next/image';
 import { FaUser } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
+import { VscRequestChanges } from "react-icons/vsc";
 
 const Account = () => {
     return (
@@ -29,12 +30,12 @@ const Account = () => {
 
                         <div className='flex justify-center items-center py-24 px-20'>
                             <div className='flex flex-col items-center px-4'>
-                                <span className='text-base mb-2'>درخواست ها</span>
-                                <MdCloudUpload size={60} className='bg-[#0045CE] text-white p-1  shadow-md' />
+                                <span className='text-lg mb-2'>درخواست ها</span>
+                                <VscRequestChanges size={70} className='bg-[#0045CE] text-white shadow-md rounded-md' />
                             </div>
                             <div className='flex flex-col items-center px-4'>
-                                <span className='text-base mb-2'>تکمیل شده</span>
-                                <MdCloudUpload size={60} className='bg-[#0045CE] text-white p-1  shadow-md' />
+                                <span className='text-lg mb-2'>تکمیل شده</span>
+                                <MdCloudUpload size={70} className='bg-[#0045CE] text-white p-1  shadow-md rounded-md' />
                             </div>
                         </div>
                     </div>
