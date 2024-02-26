@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeSwiper from '../homeSwiper/homeswiper';
+import HomeSwiper from '../../components/homeSwiper/homeswiper';
 
 const swiperData = [
 

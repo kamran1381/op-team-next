@@ -20,7 +20,7 @@ const Footer = () => {
                                 <Image src='/assets/images/logo.png' loading='lazy' className='object-cover' fill alt='لوگوی او پی تیم' />
                             </div>
                             <span className='text-slate-100 border-slate-100 '>
-                                اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمیگزینند.
+                                اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمی‌گزینند.
                             </span>
                         </div>
 
