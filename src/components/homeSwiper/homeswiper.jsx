@@ -25,7 +25,7 @@ const HomeSwiper = ({ data }) => {
                 {swiperData.map((item) => (
                     <SwiperSlide key={item.name}>
                         <div className="w-full h-full relative">
-                            <Image className="object-contain" src='/assets/images/sectionOneImg.png' fill />
+                            <Image className="object-contain" src='/assets/images/sectionOneImg.png' fill alt="homeswiper"/>
                             <span className="absolute bottom-0 right-0 pl-5 pr-3 py-2 rounded-l-full bg-blue-700 text-slate-100 text-xl z-20">{item.name}</span>
                         </div>
                     </SwiperSlide>

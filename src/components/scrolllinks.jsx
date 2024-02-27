@@ -11,7 +11,7 @@ const ScrollLinks = ({ data }) => {
     return (
         <>
             {linkData.map(item => (
-                <span onClick={() => scrolltoHash(item.scrollHash)} key={item.name} className='p-3 font-extrabold text-sm text-indigo-950 cursor-pointer hover:text-indigo-800 transition-colors'>{item.name}</span>
+                <span onClick={() => scrolltoHash(item.scrollHash)} key={item.name} className='p-3 font-extrabold sm:text-sm text-xs text-indigo-950 cursor-pointer hover:text-indigo-800 transition-colors'>{item.name}</span>
             ))}
         </>
     );

@@ -1,9 +1,8 @@
 import React from 'react';
 import Sidebar from '../layouts/sidebar';
-import Image from 'next/image';
-import { FaUser } from "react-icons/fa";
 import { MdCloudUpload } from "react-icons/md";
 import { VscRequestChanges } from "react-icons/vsc";
+import Panelheader from '../layouts/header';
 
 const Account = () => {
     return (
@@ -12,30 +11,27 @@ const Account = () => {
                 <div className='w-3/4 flex justify-center items-center space-x-3 space-x-reverse'>
                     <Sidebar />
                     <div className='w-4/5 bg-slate-100 rounded-3xl shadow-md shadow-gray-400 p-10 flex flex-col space-y-5 items-center'>
-                        <div className='flex w-full'>
-                            <div className='flex w-full items-center'>
-                                <div className='w-20 h-16 relative overflow-hidden rounded-xl shadow-md shadow-gray-500'>
-                                    <Image src='/assets/images/logo.png' className='object-cover' loading='lazy' fill alt='لوگوی او پی تیم' />
-                                </div>
-                                <span className='pr-6 font-bold'>آقای/خانم رضا عسگری به اوپی خوش آمدید.</span>
-                            </div>
-                            <div className='flex items-end'>
-                                <div className='mt-5 px-6'>
-                                    <div className='relative overflow-hidden rounded-xl shadow-md'>
-                                        <FaUser size={50} className='bg-slate-900 text-white p-1 rounded-full shadow-md' />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <Panelheader />
                         <div className='flex justify-center items-center py-24 px-20'>
                             <div className='flex flex-col items-center px-4'>
-                                <span className='text-lg mb-2'>درخواست ها</span>
-                                <VscRequestChanges size={70} className='bg-[#0045CE] text-white shadow-md rounded-md' />
+                                <span className='text-lg mb-2 font-bold text-indigo-950'>درخواست ها</span>
+                                <div className="flex space-x-2 space-x-reverse bg-blue-700 px-5 py-4 items-center rounded-md justify-center relative overflow-hidden shadow-md">
+                                    <span className="text-slate-100 text-sm font-extrabold">5</span>
+                                    <VscRequestChanges size={50} className=' text-slate-100' />
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 "></div>
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 rotate-12"></div>
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 rotate-45"></div>
+                                </div>
                             </div>
                             <div className='flex flex-col items-center px-4'>
-                                <span className='text-lg mb-2'>تکمیل شده</span>
-                                <MdCloudUpload size={70} className='bg-[#0045CE] text-white p-1  shadow-md rounded-md' />
+                                <span className='text-lg mb-2 font-bold text-indigo-950'>تکمیل شده</span>
+                                <div className="flex space-x-2 space-x-reverse bg-blue-700 px-5 py-4 items-center rounded-md justify-center relative overflow-hidden shadow-md">
+                                    <span className="text-slate-100 text-sm font-extrabold">2</span>
+                                    <MdCloudUpload size={50} className='text-slate-100' />
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 "></div>
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 rotate-12"></div>
+                                    <div className="w-12 h-12 bg-[#ffffff93] absolute -bottom-5 -right-5 rotate-45"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
