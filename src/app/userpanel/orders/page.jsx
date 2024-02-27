@@ -38,7 +38,7 @@ const Order = () => {
                                 </div>
                             </div>
 
-                            <div className='py-1 flex justify-center' >
+                            <div className='py-2' >
                                 <Ordersform />
                             </div>
                         </div>
