@@ -9,17 +9,17 @@ import { FaTelegram } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className='w-full flex justify-center bg-gradient-to-bl from-[#00FFF0] to-[#0012B7]'>
+        <div className='w-full flex justify-center bg-gradient-to-bl from-[#00FFF0] to-[#0012B7] xl:px-0 px-2'>
             <div className='w-full max-w-7xl flex flex-col py-5 space-y-3'>
-                <div className='w-full flex items-start justify-between py-20'>
+                <div className='w-full flex flex-col lg:flex-row lg:items-start lg:justify-between items-center space-y-14 lg:space-y-0 py-20'>
 
-                    <div className='flex flex-col items-start space-y-10'>
+                    <div className='flex flex-col lg:items-start items-center space-y-5'>
 
-                        <div className='flex flex-col items-start space-y-3'>
+                        <div className='flex flex-col lg:items-start items-center space-y-3'>
                             <div className='flex justify-center items-center w-[100px] h-[80px] rounded-2xl overflow-hidden shadow-sm shadow-slate-800 relative'>
                                 <Image src='/assets/images/logo.png' loading='lazy' className='object-cover' fill alt='لوگوی او پی تیم' />
                             </div>
-                            <span className='text-slate-100 border-slate-100 '>
+                            <span className='text-slate-100 border-slate-100 lg:text-right text-center'>
                                 اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمی‌گزینند.
                             </span>
                         </div>
@@ -49,12 +49,12 @@ const Footer = () => {
                     </div>
 
 
-                    <div className='flex flex-col items-start space-y-5'>
-                        <span className='flex justify-start items-start flex-col space-y-2'>
+                    <div className='flex flex-col lg:items-start items-center space-y-5'>
+                        <span className='flex justify-start lg:items-start items-center flex-col space-y-2'>
                             <span className='text-white text-base font-bold'>بخش های سایت</span>
                             <div className='w-7 h-1 rounded-full bg-white'></div>
                         </span>
-                        <div className='flex flex-col space-y-3'>
+                        <div className='flex flex-col lg:items-start items-center space-y-3'>
                             <span className='text-slate-200 font-semibold'>سفارش سایت </span>
                             <span className='text-slate-200 font-semibold'>درباره ما  </span>
                             <span className='text-slate-200 font-semibold'>پروژه های ما  </span>
@@ -63,7 +63,7 @@ const Footer = () => {
                     </div>
 
                     <div className='flex flex-col space-y-10'>
-                        <div className='w-2/3 flex flex-col items-start space-y-2'>
+                        <div className='lg:w-2/3 w-full lg:text-right text-center flex flex-col lg:items-start items-center space-y-2'>
                             <span className='text-white font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
 
                             <span className='text-sm text-slate-200 '>
@@ -72,11 +72,11 @@ const Footer = () => {
                         </div>
 
 
-                        <div className=' w-full flex justify-end'>
+                        <div className=' w-full flex lg:justify-end justify-center'>
                             <div className="flex justify-center items-center bg-slate-100 rounded-3xl px-8 py-6">
                                 <div className="flex flex-col items-center space-y-5 ">
                                     <span className="text-center text-sm w-full text-indigo-900 font-bold">
-                                        برای سفارش سایت و ارسال order لطفا وارد حساب کاربری خود شوید.
+                                        برای اطلاع از اخبار سایت آدرس ایمیل خود را وارد کنید
                                     </span>
 
                                     <div className="flex items-center relative w-full">

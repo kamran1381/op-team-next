@@ -20,7 +20,7 @@ const Card = ({ data }) => {
                         </div>
                         <div className='w-full flex items-center justify-between z-10'>
                             <div className='flex flex-col space-y-2'>
-                                <span className='text-2xl font-extrabold text-white'>{item.name}</span>
+                                <span className='lg:text-2xl text-xl font-extrabold text-white'>{item.name}</span>
                                 <span className='text-xs font-bold text-white'>{item.role}</span>
                                 <span className='w-7 h-1 bg-white rounded-full'></span>
                             </div>
@@ -29,7 +29,7 @@ const Card = ({ data }) => {
                                 <IoPersonSharp size={50} className="text-slate-400"/>
                             </div>
                         </div>
-                        <p className='font-bold text-white leading-8 text-justify z-10'>
+                        <p className='font-bold text-white text-sm lg:text-base leading-8 text-justify z-10'>
                             {item.description}
                         </p>
                         <div className='w-8 h-fit bg-[#0000003c] rounded-full flex flex-col items-center py-3 space-y-5 z-10'>

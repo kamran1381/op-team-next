@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { TbLogin } from "react-icons/tb";
 import HeaderLinks from '@/components/headerlinks';
 import ScrollLinks from '@/components/scrolllinks';
+import { IoPersonSharp } from 'react-icons/io5';
 
 
 const Header = () => {
@@ -16,43 +17,49 @@ const Header = () => {
     ]
 
     const scrollLinks = [
-  
+
         {
             name: 'درباره ما',
-            scrollHash:'aboutUs'
+            scrollHash: 'aboutUs'
         },
         {
             name: 'پروژه‌های ما',
-            scrollHash:'ourProjects'
+            scrollHash: 'ourProjects'
         }
     ]
-    
-    
-    
+
+
+
 
     return (
-        <div className='w-full flex-col flex justify-center items-center p-5 relative'>
-            
+        <div className='w-full flex-col flex justify-center items-center py-5 lg:px-5 px-2 relative'>
+            <div className="w-full lg:hidden flex items-center justify-start space-x-2 space-x-reverse pb-3">
+                <Link href='/' className=' overflow-hidden h-full bg-[#23243d] rounded-xl flex justify-center items-center'>
+                    <Image src='/assets/images/logo.png' loading='lazy' width={70} height={70} alt='لوگوی او پی تیم' />
+                </Link>
+                <span className="text-indigo-900 text-lg font-extrabold">او پی تیم</span>
+            </div>
             <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md z-10'>
-                <Link href='/' className='w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl flex justify-center items-center'>
+                <Link href='/' className='lg:w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl hidden lg:flex justify-center items-center'>
                     <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
                 </Link>
-                <div className='w-11/12 bg-slate-100 h-full rounded-xl flex items-center justify-between'>
-                    <div className='w-3/5 flex items-center space-x-4 space-x-reverse pr-10'>
-                       <HeaderLinks data={linkData}/>
-                       <ScrollLinks data={scrollLinks}/>
+                <div className='lg:w-11/12 w-full bg-slate-100 h-full rounded-xl flex items-center justify-between'>
+                    <div className=' w-full flex items-center lg:space-x-4 lg:space-x-reverse lg:pr-10'>
+                        <HeaderLinks data={linkData} />
+                        <ScrollLinks data={scrollLinks} />
                     </div>
-                    <div className='w-1/5 h-full flex justify-center items-center'>
-                        <Link href='login' className='flex px-8 py-2 rounded-xl border shadow justify-center items-center space-x-2 space-x-reverse text-xs font-extrabold text-gray-400 group '>
-                            <TbLogin className='text-xl group-hover:text-gray-600 transition-colors'/>
-                            <span className='group-hover:text-gray-600 transition-colors'>ورود</span>
-                            <span className='w-0.5 h-5 bg-gray-400 group-hover:bg-gray-600 transition-colors'></span>
-                            <span className='group-hover:text-gray-600 transition-colors'>ثبت نام</span>
+                    <div className='w-fit h-full flex lg:justify-center justify-end items-center pl-2'>
+                        <Link href='login' className='w-full text-nowrap flex sm:px-8 sm:py-2 px-1 py-1  rounded-xl border shadow justify-center items-center space-x-2 space-x-reverse text-xs font-extrabold text-gray-400 group '>
+                            <IoPersonSharp className='text-xl group-hover:text-gray-600 transition-colors sm:hidden' />
+                            <TbLogin className='text-xl group-hover:text-gray-600 transition-colors hidden sm:block' />
+                            <span className='group-hover:text-gray-600 transition-colors hidden sm:block'>ورود</span>
+                            <span className='w-0.5 h-5 bg-gray-400 group-hover:bg-gray-600 transition-colors hidden sm:block'></span>
+                            <span className='group-hover:text-gray-600 transition-colors hidden sm:block '>ثبت نام</span>
                         </Link>
                     </div>
                 </div>
             </div>
-            <Link href='tel:09925616704' className='w-80 flex items-center justify-between bg-[#198BE852] z-0 p-3 text-indigo-950 text-xs font-extrabold rounded-b-3xl'>
+            <Link href='tel:09925616704' className='sm:w-80 w-52 flex items-center justify-between bg-[#198BE852] z-0 p-3 text-indigo-950 text-xs font-extrabold rounded-b-3xl'>
                 <span>تماس با ما</span>
                 <span>09925616704</span>
             </Link>
