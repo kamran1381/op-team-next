@@ -48,8 +48,8 @@ const Header = () => {
                         <HeaderLinks data={linkData} />
                         <ScrollLinks data={scrollLinks} />
                     </div>
-                    <div className='w-fit h-full flex lg:justify-center justify-end items-center pl-2'>
-                        <Link href='login' className='w-full text-nowrap flex sm:px-8 sm:py-2 px-1 py-1  rounded-xl border shadow justify-center items-center space-x-2 space-x-reverse text-xs font-extrabold text-gray-400 group '>
+                    <div className='w-fit h-full flex lg:justify-center justify-end items-center sm:pl-8 pl-2'>
+                        <Link href='/login' className='w-full text-nowrap flex sm:px-8 sm:py-2 px-1 py-1  rounded-xl border shadow justify-center items-center space-x-2 space-x-reverse text-xs font-extrabold text-gray-400 group '>
                             <IoPersonSharp className='text-xl group-hover:text-gray-600 transition-colors sm:hidden' />
                             <TbLogin className='text-xl group-hover:text-gray-600 transition-colors hidden sm:block' />
                             <span className='group-hover:text-gray-600 transition-colors hidden sm:block'>ورود</span>
