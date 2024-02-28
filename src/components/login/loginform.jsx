@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import {FaGoogle } from 'react-icons/fa';
 import Link from 'next/link'
+import LoginWithGithub from './loginwithgithub';
 
 const LoginForm = () => {
     return (
@@ -12,7 +13,7 @@ const LoginForm = () => {
                 <div className='w-full flex items-center space-x-reverse space-x-5'>
                     <input type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
                 </div>
-                <div className='w-full flex sm:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
+                <div className='w-full flex lg:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
                     <div className='flex space-x-2 space-x-reverse items-center'>
                         <input type="checkbox" className='w-4 h-4 accent-blue-700'/>
                         <span className='lg:text-sm text-xs text-indigo-950 font-bold'>مرا به خاطر بسپار</span>
@@ -26,17 +27,12 @@ const LoginForm = () => {
                 <div className='w-full h-px bg-gray-300'></div>
             </div>
             <form className='sm:w-2/3 w-full' action="">
-                <button className='w-full lg:text-base text-xs p-3 rounded-3xl bg-rose-500 flex justify-center items-center space-x-reverse space-x-5 border text-white hover:bg-rose-400 transition-colors'>
+                <button className='w-full sm:text-base text-xs p-3 rounded-3xl bg-rose-500 flex justify-center items-center space-x-reverse space-x-5 border text-white hover:bg-rose-400 transition-colors'>
                     <span>ورود با استفاده از گوگل</span>
                     <FaGoogle className='text-xl' />
                 </button>
             </form>
-            <form className='sm:w-2/3 w-full' action="">
-                <button className='w-full lg:text-base text-xs p-3 rounded-3xl bg-slate-900 flex justify-center items-center space-x-reverse space-x-5 text-white hover:bg-slate-800 transition-colors'>
-                    <span>ورود با استفاده از گیت هاب</span>
-                    <FaGithub className='text-xl' />
-                </button>
-            </form>
+            <LoginWithGithub />
         </>
     );
 }
