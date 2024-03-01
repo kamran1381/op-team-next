@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { TbLogin } from "react-icons/tb";
 import { IoPersonSharp } from 'react-icons/io5';
@@ -8,10 +9,18 @@ import UserPanelButton from './userpanelbutton';
 
 const LoginHeaderButton = async () => {
     const session = await auth();
+    console.log(session)
+
     return (
         <>
             {session ?
-                <UserPanelButton image={session.user.image}/>
+            <div className='flex py-2'> 
+            <span className='px-2'>{session.user.name}</span>
+
+            <UserPanelButton userImage={session.user.image} />
+            
+            </div>
+            
                 :
                 <Link href='/login' className='w-full text-nowrap flex sm:px-8 sm:py-2 px-1 py-1  rounded-xl border shadow justify-center items-center space-x-2 space-x-reverse text-xs font-extrabold text-gray-400 group '>
                     <IoPersonSharp className='text-xl group-hover:text-gray-600 transition-colors sm:hidden' />

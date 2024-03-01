@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 const LoginWithGithub = async() => {
 
     const session = await auth();
-    console.log(session)
+   
 
     const handleGithubLogin =async () => {
         'use server';
