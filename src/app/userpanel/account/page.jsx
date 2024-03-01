@@ -3,10 +3,15 @@ import Sidebar from '../layouts/sidebar';
 import { MdCloudUpload } from "react-icons/md";
 import { VscRequestChanges } from "react-icons/vsc";
 import Panelheader from '../layouts/header';
+import { auth } from '@/lib/auth';
 
-const Account = () => {
-    return (
-        <div className='w-full flex flex-col justify-center items-center sm:p-5 p-1 relative '>
+const Account = async () => {
+     const session = await auth()
+      
+     return (
+         <>
+             {session ?
+                <div className='w-full flex flex-col justify-center items-center sm:p-5 p-1 relative '>
             <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl'>
                 <div className='sm:w-3/4 w-full flex-col lg:flex-row flex justify-center items-center lg:space-x-3 lg:space-x-reverse px-1 space-y-3 lg:space-y-0'>
                     <Sidebar />
@@ -37,7 +42,14 @@ const Account = () => {
                     </div>
                 </div>
             </div>
+        </div> : <div>you need to sign in 
+         {/* since this is a server component  I watched a youtube video and they used middleware to handle the protect the url route and redirect to login  
+         https://www.youtube.com/watch?v=Rs8018RO5YQ here is the youtube video link  */}
         </div>
+             
+             }
+         </>
+
     );
 }
 

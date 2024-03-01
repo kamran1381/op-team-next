@@ -3,12 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import HeaderLinks from '@/components/headerlinks';
 import ScrollLinks from '@/components/scrolllinks';
+import { IoPersonSharp } from 'react-icons/io5';
 import LoginHeaderButton from '@/components/header/loginheaderbutton';
-
-
-const Header = () => {
-
-
+const Header =  () => {
     const linkData = [
         {
             name: 'سفارش سایت',
