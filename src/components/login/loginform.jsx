@@ -1,7 +1,7 @@
 import React from 'react';
-import {FaGoogle } from 'react-icons/fa';
 import Link from 'next/link'
 import LoginWithGithub from './loginwithgithub';
+import LoginWithGoogle from './loginwithgoogle';
 
 const LoginForm = () => {
     return (
@@ -26,12 +26,7 @@ const LoginForm = () => {
                 <span className='border border-gray-300 rounded-full w-7 h-7 bg-slate-100 absolute left-1/2 -translate-y-1/2 -translate-x-1/2 flex justify-center items-center'>یا</span>
                 <div className='w-full h-px bg-gray-300'></div>
             </div>
-            <form className='sm:w-2/3 w-full' action="">
-                <button className='w-full sm:text-base text-xs p-3 rounded-3xl bg-rose-500 flex justify-center items-center space-x-reverse space-x-5 border text-white hover:bg-rose-400 transition-colors'>
-                    <span>ورود با استفاده از گوگل</span>
-                    <FaGoogle className='text-xl' />
-                </button>
-            </form>
+            <LoginWithGoogle />
             <LoginWithGithub />
         </>
     );
