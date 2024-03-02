@@ -5,6 +5,8 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import Header from './layouts/header';
 import Footer from './layouts/footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
 
 export const metadata = {
@@ -20,12 +22,11 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={SansWeb.className}>
         <Suspense fallback={<Loading />}>
+          <ToastContainer />
           <Header />
           {children}
           <Footer />
         </Suspense>
-
-
       </body>
     </html>
   );

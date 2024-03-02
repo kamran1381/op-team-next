@@ -2,7 +2,17 @@ import React from 'react'
 import Image from 'next/image'
 import LoginForm from '@/components/login/loginform';
 import Sidebar from '../layouts/sidebar';
-const Login = () => {
+import { auth } from '@/lib/auth';
+import { redirect } from 'next/navigation'
+
+const Login = async () => {
+
+    const session = await auth();
+    
+    if (session) {
+        console.log('you have authenticated before');
+        redirect('/')
+    }
 
     return (
         <>

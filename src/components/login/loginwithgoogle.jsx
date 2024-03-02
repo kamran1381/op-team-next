@@ -6,7 +6,7 @@ const LoginWithGoogle = async () => {
 
     const handleGoogleLogin = async () => {
         'use server';
-        await signIn("google")
+        await signIn("google", { redirectTo: "/", redirect: true })
     }
 
     return (
