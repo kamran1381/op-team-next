@@ -3,15 +3,10 @@ import Sidebar from '../layouts/sidebar';
 import { MdCloudUpload } from "react-icons/md";
 import { VscRequestChanges } from "react-icons/vsc";
 import Panelheader from '../layouts/header';
-import { auth } from '@/lib/auth';
-import { redirect } from 'next/navigation';
 
 const Account = async () => {
-    const session = await auth();
 
-    if (!session) {
-        redirect('/login');
-    }
+
 
     return (
         <>

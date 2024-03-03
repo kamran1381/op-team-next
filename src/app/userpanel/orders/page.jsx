@@ -2,16 +2,11 @@ import React from 'react';
 import Sidebar from '../layouts/sidebar';
 import Ordersform from '@/components/ordersform';
 import Panelheader from '../layouts/header';
-import { auth } from '@/lib/auth';
-import { redirect } from 'next/navigation';
+
 
 const Order =async () => {
-    const session = await auth();
 
-    if (!session) {
-        redirect('/login');
-    }
-
+  
     return (
         <div className='w-full flex flex-col justify-center items-center sm:p-5 p-1 relative'>
             <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl'>
