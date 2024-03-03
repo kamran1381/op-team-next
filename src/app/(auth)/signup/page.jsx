@@ -1,9 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import SignupForm from '@/components/signupform'
 import Sidebar from '../layouts/sidebar'
-const SignUp = () => {
+import { auth } from '@/lib/auth'
+import { redirect } from 'next/navigation'
+
+const SignUp =async () => {
+
+    const session = await auth();
+    
+    if (session) {
+        redirect('/userpanel/account')
+    }
+
     return (
         <>
             <div className='w-full flex flex-col justify-center items-center p-2 lg:p-5'>

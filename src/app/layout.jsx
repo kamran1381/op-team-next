@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import Header from './layouts/header';
 import Footer from './layouts/footer';
+import { Toaster } from 'sonner'
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
 
 export const metadata = {
@@ -24,8 +25,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </Suspense>
-
-
+        <Toaster />
       </body>
     </html>
   );

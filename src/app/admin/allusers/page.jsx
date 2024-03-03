@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../layouts/sidebar';
-import Alluserstable from '@/components/alluserstable';
+import Alluserstable from '@/components/dashboard/alluserstable';
 const AllUsers = () => {
     return (
         <div className='w-full flex flex-col justify-center items-center p-2 lg:p-5'>

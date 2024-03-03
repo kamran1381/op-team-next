@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../layouts/sidebar';
-import Allorderstable from '@/components/allorderstable';
+import Allorderstable from '@/components/dashboard/allorderstable';
 const AllOrders = () => {
     return (
         <div className='w-full flex flex-col justify-center items-center p-2 lg:p-5'>
