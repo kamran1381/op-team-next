@@ -1,15 +1,12 @@
 import React from 'react';
-import { auth, signIn } from '@/lib/auth';
+import { signIn } from '@/lib/auth';
 import { FaGithub } from 'react-icons/fa';
 
 const LoginWithGithub = async() => {
 
-    const session = await auth();
-   
-
     const handleGithubLogin =async () => {
         'use server';
-        await signIn("github")
+        await signIn("github",{ redirectTo: "/", redirect: true })
     }
 
     return (

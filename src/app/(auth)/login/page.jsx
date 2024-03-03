@@ -10,8 +10,7 @@ const Login = async () => {
     const session = await auth();
     
     if (session) {
-        console.log('you have authenticated before');
-        redirect('/')
+        redirect('/userpanel/account')
     }
 
     return (
