@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import ReCAPTCHA from 'react-google-recaptcha';
+// import ReCAPTCHA from "react-google-recaptcha"
 
 const SignupForm = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ const SignupForm = () => {
         password: '',
         confirmPassword: ''
     });
+
 
     const [registerClickCount, setRegisterClickCount] = useState(0);
 
@@ -30,7 +31,7 @@ const SignupForm = () => {
     return (
         <>
             {registerClickCount >= 3 && (
-                <ReCAPTCHA sitekey='6LdqdokpAAAAAI1eMdx8SrXXDV81iuUXr1AJBG1c' />
+                <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
             )}
             <form className='sm:w-2/3 w-full p-5 flex flex-col items-center space-y-5' onSubmit={handleSubmit}>
                 <div className='w-full flex sm:flex-row flex-col items-center space-y-4 sm:space-y-0 sm:space-x-reverse sm:space-x-5'>
