@@ -1,15 +1,19 @@
 import { NextResponse } from 'next/server'
-import { NextRequest } from 'next/server'
 import { auth } from './lib/auth'
-export async function middleware(request)  {
-    
+export async function middleware(request) {
+
     const session = await auth()
-    if(!session){
-       return NextResponse.redirect(new URL('/login' , request.url))
+    if (!session) {
+        if (request.nextUrl.pathname.startsWith('/userpanel')) {
+            return NextResponse.redirect(new URL('/loginfirst', request.url))
+        }
+        if (request.nextUrl.pathname.startsWith('/admin')) {
+            return NextResponse.redirect(new URL('/accessdenied', request.url))
+        }
     }
     return NextResponse.next()
 }
 
 export const config = {
-    matcher: ['/userpanel/account', '/userpanel/orders'] ,
+    matcher: ['/userpanel/:path*', '/admin/:path*'],
 }
