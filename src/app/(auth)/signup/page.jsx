@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import SignupForm from '@/components/signupform'
+import SignupForm from '@/components/signup/signupform'
 import Sidebar from '../layouts/sidebar'
 import { auth } from '@/lib/auth'
 import { redirect } from 'next/navigation'
