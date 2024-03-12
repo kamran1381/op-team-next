@@ -1,23 +1,32 @@
-'use client';
-import axios from 'axios';
-import React, { useState } from 'react';
+'use client'
+import React, { useState ,useEffect } from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
-import { z } from "zod";
-
+import axios from 'axios';
 const LoginWithUserInfo = () => {
-
-    const [isLoading, setIsLoading] = useState(false)
-    const [errorMsg, setErrorMsg] = useState(null)
+    const [isLoading, setIsLoading] = useState(false);
+    // const [errorMsg, setErrorMsg] = useState(null);
+    const [csrfToken, setCsrfToken] = useState('');
 
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
 
-    const mySchema = z.object({
-        userEmail: z.string({ required_error: " وارد کردن ایمیل اجباری است" }).email('ایمیل اشتباه است'),
-        userPassword: z.string({ required_error: " وارد کردن پسورد اجباری است" })
-    });
+    useEffect(() => {
+        const fetchCsrfToken = async () => {
+            try {
+                const response = await axios.get('https://api.op-team.ir/sanctum/csrf-cookie', {
+                    withCredentials: true // Send cookies along with the request
+                });
+               
+                setCsrfToken(response.data.csrfToken); 
+            } catch (error) {
+                console.error('Error fetching CSRF token:', error);
+            }
+        };
+
+        fetchCsrfToken();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,49 +38,41 @@ const LoginWithUserInfo = () => {
 
     const loginFormSubmitHandler = async (event) => {
         event.preventDefault();
-        setIsLoading(true)
-        setErrorMsg(null)
+        setIsLoading(true);
+        // setErrorMsg(null);
+
         try {
-            mySchema.parse(formData);
             const response = await axios.post('http://api.op-team.ir/login', formData, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }
-            )
+                    'X-CSRF-TOKEN': csrfToken, 
+                },
+                withCredentials: true 
+            });
 
-            if (!response.ok) {
-                throw new Error('Failed to submit the data. Please try again.')
-            }
-
-            // Handle response if necessary
-            const res = await response.json()
-            console.log(res)
+            console.log('Data has been posted:', response.data);
         } catch (error) {
-            console.log(error);
-            // setErrorMsg(JSON.parse(error.message));
-        }
-        finally {
+            console.log('Failed to submit the data. Please try again.');
+            // setErrorMsg(error.message);
+        } finally {
             setIsLoading(false);
         }
-
-    }
+    };
 
     return (
         <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>
-            {errorMsg &&
+            {/* {errorMsg &&
                 <ul className="bg-rose-300 w-full flex flex-col space-y-1 p-2 rounded-md">
                     {errorMsg.map((item, index) => (
                         <li key={index} className="text-white w-full flex items-center text-xs"><FaChevronLeft />{item.message}</li>
                     ))}
                 </ul>
-            }
+            } */}
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="userEmail" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
+                <input onChange={handleChange} name="email" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
             </div>
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="userPassword" type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
+                <input onChange={handleChange} name="password" type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
             </div>
             <div className='w-full flex lg:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
                 <div className='flex space-x-2 space-x-reverse items-center'>

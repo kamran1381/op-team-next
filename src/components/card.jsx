@@ -25,7 +25,7 @@ const Card = async () => {
 
     return (
         <>
-            {
+            {/* {
                 CardData.map((item) => (
                     <div key={item.id} className='w-72 h-[452px] bg-blue-700 rounded-3xl p-5 flex flex-col justify-between overflow-hidden relative'>
                         <div className='absolute w-full h-full top-0 right-0 z-0'>
@@ -64,7 +64,7 @@ const Card = async () => {
                         </div>
                     </div>
                 ))
-            }
+            } */}
         </>
     );
 }
