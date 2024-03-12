@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha"
 import SignupWithGoogle from './signupwithgoogle';
 import SignupWithGithub from './signupwithgithub';
-
+import axios from 'axios';
 const SignupForm = () => {
 
     const [formData, setFormData] = useState({
@@ -27,18 +27,27 @@ const SignupForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (registerClickCount >= 3) {
-            const token = await recaptchaRef.current.getValue();
-            if (token) {
-                console.log('token created', token);
-            } else {
-                console.log('token not created');
-            }
-            console.log('logged in with captcha');
-        } else {
-            console.log('logged in without captcha');
-        }
-        setRegisterClickCount(prevCount => prevCount + 1);
+ 
+         
+
+
+
+
+
+
+
+        // if (registerClickCount >= 3) {
+        //     const token = await recaptchaRef.current.getValue();
+        //     if (token) {
+        //         console.log('token created', token);
+        //     } else {
+        //         console.log('token not created');
+        //     }
+        //     console.log('logged in with captcha');
+        // } else {
+        //     console.log('logged in without captcha');
+        // }
+        // setRegisterClickCount(prevCount => prevCount + 1);
     };
 
     return (

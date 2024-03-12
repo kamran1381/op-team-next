@@ -1,22 +1,11 @@
-'use client';
-import axios from 'axios';
+'use client'
 import React, { useState } from 'react';
-import { FaChevronLeft } from 'react-icons/fa6';
-import { z } from "zod";
-
+import axios from 'axios';
 const LoginWithUserInfo = () => {
-
-    const [isLoading, setIsLoading] = useState(false)
-    const [errorMsg, setErrorMsg] = useState(null)
-
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-    });
-
-    const mySchema = z.object({
-        userEmail: z.string({ required_error: " وارد کردن ایمیل اجباری است" }).email('ایمیل اشتباه است'),
-        userPassword: z.string({ required_error: " وارد کردن پسورد اجباری است" })
     });
 
     const handleChange = (e) => {
@@ -29,49 +18,45 @@ const LoginWithUserInfo = () => {
 
     const loginFormSubmitHandler = async (event) => {
         event.preventDefault();
-        setIsLoading(true)
-        setErrorMsg(null)
+        setIsLoading(true);
+
         try {
-            mySchema.parse(formData);
+            // Fetch CSRF token
+            await axios.get('https://api.op-team.ir/sanctum/csrf-cookie', {
+                withCredentials: true,
+                withXSRFToken : true ,
+            });
+
+            // Get XSRF token value from the form
+            const token = document.querySelector('form[name="csrf-token"]').getAttribute('content');
+            console.log(token)
+            // Posting the data using axios
             const response = await axios.post('http://api.op-team.ir/login', formData, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }
-            )
+                    'Accept': 'application/json',
+                    'X-XSRF-TOKEN': token, // Set XSRF token as the value
+                    'Access-Control-Allow-Credentials': 'true',
+                },
+            });
 
-            if (!response.ok) {
-                throw new Error('Failed to submit the data. Please try again.')
-            }
-
-            // Handle response if necessary
-            const res = await response.json()
-            console.log(res)
+            // Process response
+            console.log(response.data.message);
         } catch (error) {
-            console.log(error);
-            // setErrorMsg(JSON.parse(error.message));
-        }
-        finally {
+            // Handle errors
+            console.error(error);
+        } finally {
             setIsLoading(false);
         }
-
-    }
+    };
 
     return (
-        <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>
-            {errorMsg &&
-                <ul className="bg-rose-300 w-full flex flex-col space-y-1 p-2 rounded-md">
-                    {errorMsg.map((item, index) => (
-                        <li key={index} className="text-white w-full flex items-center text-xs"><FaChevronLeft />{item.message}</li>
-                    ))}
-                </ul>
-            }
+        <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5' name="csrf-token" content="{{ csrf_token() }}">
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="userEmail" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
+                <input onChange={handleChange} name="email" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
             </div>
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="userPassword" type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
+                <input onChange={handleChange} name="password" type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
             </div>
             <div className='w-full flex lg:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
                 <div className='flex space-x-2 space-x-reverse items-center'>
