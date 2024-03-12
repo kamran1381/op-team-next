@@ -1,32 +1,12 @@
 'use client'
-import React, { useState ,useEffect } from 'react';
-import { FaChevronLeft } from 'react-icons/fa6';
+import React, { useState } from 'react';
 import axios from 'axios';
 const LoginWithUserInfo = () => {
     const [isLoading, setIsLoading] = useState(false);
-    // const [errorMsg, setErrorMsg] = useState(null);
-    const [csrfToken, setCsrfToken] = useState('');
-
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
-
-    useEffect(() => {
-        const fetchCsrfToken = async () => {
-            try {
-                const response = await axios.get('https://api.op-team.ir/sanctum/csrf-cookie', {
-                    withCredentials: true // Send cookies along with the request
-                });
-               
-                setCsrfToken(response.data.csrfToken); 
-            } catch (error) {
-                console.error('Error fetching CSRF token:', error);
-            }
-        };
-
-        fetchCsrfToken();
-    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -39,35 +19,39 @@ const LoginWithUserInfo = () => {
     const loginFormSubmitHandler = async (event) => {
         event.preventDefault();
         setIsLoading(true);
-        // setErrorMsg(null);
 
         try {
+            // Fetch CSRF token
+            await axios.get('https://api.op-team.ir/sanctum/csrf-cookie', {
+                withCredentials: true,
+                withXSRFToken : true ,
+            });
+
+            // Get XSRF token value from the form
+            const token = document.querySelector('form[name="csrf-token"]').getAttribute('content');
+            console.log(token)
+            // Posting the data using axios
             const response = await axios.post('http://api.op-team.ir/login', formData, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken, 
+                    'Accept': 'application/json',
+                    'X-XSRF-TOKEN': token, // Set XSRF token as the value
+                    'Access-Control-Allow-Credentials': 'true',
                 },
-                withCredentials: true 
             });
 
-            console.log('Data has been posted:', response.data);
+            // Process response
+            console.log(response.data.message);
         } catch (error) {
-            console.log('Failed to submit the data. Please try again.');
-            // setErrorMsg(error.message);
+            // Handle errors
+            console.error(error);
         } finally {
             setIsLoading(false);
         }
     };
 
     return (
-        <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>
-            {/* {errorMsg &&
-                <ul className="bg-rose-300 w-full flex flex-col space-y-1 p-2 rounded-md">
-                    {errorMsg.map((item, index) => (
-                        <li key={index} className="text-white w-full flex items-center text-xs"><FaChevronLeft />{item.message}</li>
-                    ))}
-                </ul>
-            } */}
+        <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5' name="csrf-token" content="{{ csrf_token() }}">
             <div className='w-full flex items-center space-x-reverse space-x-5'>
                 <input onChange={handleChange} name="email" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
             </div>
