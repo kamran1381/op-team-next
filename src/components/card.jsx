@@ -1,30 +1,28 @@
 import React from 'react';
-import { FaLinkedinIn, FaStar } from "react-icons/fa";
-import { PiInstagramLogoFill } from "react-icons/pi";
-import Link from 'next/link'
-import { IoPersonSharp } from "react-icons/io5";
-import axios from 'axios';
+// import { FaLinkedinIn, FaStar } from "react-icons/fa";
+// import { PiInstagramLogoFill } from "react-icons/pi";
+// import Link from 'next/link'
+// import { IoPersonSharp } from "react-icons/io5";
+// import axios from '@/lib/axios';
 
 
 const Card = async () => {
 
-    const getData = async () => {
-        try {
-            const response = await axios.get('http://api.op-team.ir/api/carts/show', {
-                headers: {
-                    Accept: 'application/json',
-                }
-            });
-            return response.data.data;
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    const CardData =await getData();
+    // const getData = async () => {
+    //     try {
+    //         const response = await axios.get('api/carts/show');
+    //         // console.log(response);
+    //         return response.data.data;
+    //     } catch (err) {
+    //         console.log(err); 
+    //     }
+    // }
+    // const CardData =await getData();
 
     return (
         <>
+
+        <p>api error</p>
             {/* {
                 CardData.map((item) => (
                     <div key={item.id} className='w-72 h-[452px] bg-blue-700 rounded-3xl p-5 flex flex-col justify-between overflow-hidden relative'>
