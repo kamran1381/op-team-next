@@ -1,6 +1,10 @@
 import NextAuth from "next-auth"
 import GitHub from "next-auth/providers/github"
+import Credentials from "@auth/core/providers/credentials"
 import Google from "@auth/core/providers/google"
+
+
+
 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     providers: [
@@ -11,6 +15,18 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
         Google({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET
-       }),
+        }),
+        Credentials({
+            async authorize(credentials) {
+                if (credentials.status == 200) {
+                    return credentials
+                } else {
+                    return null;
+                }
+            }
+        })
     ],
+    secret: process.env.AUTH_SECRET,
+    trustHost: true,
+
 })

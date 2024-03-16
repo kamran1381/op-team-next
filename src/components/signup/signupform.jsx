@@ -1,9 +1,7 @@
 'use client'
+import axios from '@/lib/axios';
 import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha"
-import SignupWithGoogle from './signupwithgoogle';
-import SignupWithGithub from './signupwithgithub';
-import axios from 'axios';
 const SignupForm = () => {
 
     const [formData, setFormData] = useState({
@@ -25,29 +23,44 @@ const SignupForm = () => {
         }));
     };
 
+    const signIn = async () => {
+        try {
+            await axios.get('/sanctum/csrf-cookie', {
+            }).then(async res => {
+                const response = await axios.post('/signup', {
+                    name: formData.username,
+                    email: formData.email,
+                    password: formData.password,
+                    password_confirmation: formData.confirmPassword
+                })
+                if (!response.status === 200) {
+                    console.log(response)
+                }
+                if (response.status === 200) {
+                    // Handle response if necessary
+                    console.log('شما با موفقیت ثبت نام شدید')
+                }
+            })
+
+        } catch (error) {
+            console.log(error);
+            // setErrorMsg(JSON.parse(error.message));
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
- 
-         
-
-
-
-
-
-
-
-        // if (registerClickCount >= 3) {
-        //     const token = await recaptchaRef.current.getValue();
-        //     if (token) {
-        //         console.log('token created', token);
-        //     } else {
-        //         console.log('token not created');
-        //     }
-        //     console.log('logged in with captcha');
-        // } else {
-        //     console.log('logged in without captcha');
-        // }
-        // setRegisterClickCount(prevCount => prevCount + 1);
+        if (registerClickCount >= 3) {
+            const token = await recaptchaRef.current.getValue();
+            if (token) {
+                signIn();
+            } else {
+                console.log('token not created');
+            }
+        } else {
+            signIn();
+        }
+        setRegisterClickCount(prevCount => prevCount + 1);
     };
 
     return (
@@ -99,14 +112,6 @@ const SignupForm = () => {
                 )}
                 <button className='bg-blue-700 text-white w-1/2 sm:w-1/3 p-3 rounded-2xl hover:bg-blue-600 transition-colors'>ثبت نام</button>
             </form>
-
-            <div className='w-full relative pb-5'>
-                <span className='border border-gray-300 rounded-full w-7 h-7 bg-slate-100 absolute left-1/2 -translate-y-1/2 -translate-x-1/2 flex justify-center items-center'>یا</span>
-                <div className='w-full h-px bg-gray-300'></div>
-            </div>
-
-            <SignupWithGoogle />
-            <SignupWithGithub />
 
         </>
     );
