@@ -1,13 +1,10 @@
+import { handleGoogleLogin } from '@/lib/actions';
 import React from 'react';
-import { signIn } from '@/lib/auth';
 import { FaGoogle } from 'react-icons/fa';
 
 const LoginWithGoogle = async () => {
 
-    const handleGoogleLogin = async () => {
-        'use server';
-        await signIn("google", { redirectTo: "/", redirect: true })
-    }
+
 
     return (
         <form className='sm:w-2/3 w-full' action={handleGoogleLogin}>

@@ -1,13 +1,9 @@
+import { handleGithubLogin } from '@/lib/actions';
 import React from 'react';
-import { signIn } from '@/lib/auth';
 import { FaGithub } from 'react-icons/fa';
 
 const LoginWithGithub = async() => {
 
-    const handleGithubLogin =async () => {
-        'use server';
-        await signIn("github",{ redirectTo: "/", redirect: true })
-    }
 
     return (
         <form className='sm:w-2/3 w-full' action={handleGithubLogin}>

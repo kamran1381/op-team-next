@@ -1,8 +1,8 @@
 'use client';
+import {loginWithCredentials } from '@/lib/actions';
 import axios from '@/lib/axios';
 import React, { useState } from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
-import { z } from "zod";
 
 const LoginWithUserInfo = () => {
 
@@ -14,10 +14,7 @@ const LoginWithUserInfo = () => {
         password: '',
     });
 
-    const mySchema = z.object({
-        email: z.string({ required_error: " وارد کردن ایمیل اجباری است" }).email('ایمیل اشتباه است'),
-        password: z.string({ required_error: " وارد کردن پسورد اجباری است" })
-    });
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,22 +24,29 @@ const LoginWithUserInfo = () => {
         }));
     };
 
+
+
+
     const loginFormSubmitHandler = async (event) => {
         event.preventDefault();
         setIsLoading(true)
         setErrorMsg(null)
         try {
-            await axios.get('/sanctum/csrf-cookie', {
-            }).then(async res => {
-                mySchema.parse(formData);
-                const response = await axios.post('/login', formData)
-                if (!response.ok) {
+            await axios.get('/sanctum/csrf-cookie').then(async res => {
+                const response = await axios.post('/login', {
+                    email: formData.email,
+                    password: formData.password
+                })
+                if (!response.status === 200) {
                     console.log(response)
                 }
-                if (response.ok) {
+                if (response.status === 200) {
                     // Handle response if necessary
                     console.log('شما با موفقیت وارد شدید')
                 }
+
+                await loginWithCredentials(response.status)
+
             })
 
         } catch (error) {
