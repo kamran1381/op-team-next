@@ -6,6 +6,8 @@ import Loading from './loading';
 import Header from './layouts/header';
 import Footer from './layouts/footer';
 import { Toaster } from 'sonner'
+
+
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
 
 export const metadata = {
@@ -13,7 +15,7 @@ export const metadata = {
     default: "تیم طراحی او پی | op team | ساخت انواع سایت ",
     template: "%s | op team | تیم طراحی او پی"
   },
-  description: "مکانیک سیار در هر جای شهرکرد که باشی میاد کمکت",
+  description: "تیم طراحی او پی",
 };
 
 export default function RootLayout({ children }) {

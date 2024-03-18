@@ -7,7 +7,7 @@ const LoginFirst = () => {
         <div className='w-full max-w-7xl bg-[#DDE5FA] flex justify-center rounded-2xl'>
             <main className='flex items-center justify-center w-full min-h-screen py-8 text-gray-900 page md:py-16 '>
                 <div className='relative flex flex-col items-center w-full gap-8 px-8 '>
-                    <h1 className='md:text-6xl text-3xl w-full select-none  text-center font-extrabold  text-gray-400 dark:text-[#373A40]  '>لطفا ابتدا وارد سایت شوید و یا ثبت نام کنید</h1>
+                    <h1 className='md:text-5xl text-3xl w-full select-none  text-center font-extrabold  text-gray-400 dark:text-[#373A40]  '>لطفا ابتدا وارد سایت شوید و یا ثبت نام کنید</h1>
 
                     <p className='text-3xl font-bold capitalize text-center'>دسترسی به این صفحه نیاز به عضویت دارد</p>
                     <p className='text-2xl font-medium break-words text-center w-full'> شاید مجبور باشید که به یکی از صفحات زیر بروید </p>
