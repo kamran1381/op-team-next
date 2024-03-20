@@ -5,7 +5,8 @@ import HeaderLinks from '@/components/headerlinks';
 import ScrollLinks from '@/components/scrolllinks';
 import { IoPersonSharp } from 'react-icons/io5';
 import LoginHeaderButton from '@/components/header/loginheaderbutton';
-const Header =  () => {
+import { FaChevronDown } from 'react-icons/fa';
+const Header = () => {
     const linkData = [
         {
             name: 'سفارش سایت',
@@ -46,13 +47,16 @@ const Header =  () => {
                         <ScrollLinks data={scrollLinks} />
                     </div>
                     <div className='w-fit h-full flex lg:justify-center justify-end items-center sm:pl-8 pl-2'>
-                     <LoginHeaderButton />
+                        <LoginHeaderButton />
                     </div>
                 </div>
             </div>
-            <Link href='tel:09925616704' className='sm:w-80 w-52 flex items-center justify-between bg-[#198BE852] z-0 p-3 text-indigo-950 text-xs font-extrabold rounded-b-3xl'>
-                <span>تماس با ما</span>
-                <span>09925616704</span>
+            <Link href='tel:09925616704' className='sm:w-80 w-52 flex flex-col space-y-2 items-center  bg-[#198BE852] z-0 px-3 pt-2 pb-1 text-indigo-950 text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform'>
+                <div className='flex items-center justify-between w-full'>
+                    <span>تماس با ما</span>
+                    <span>09925616704</span>
+                </div>
+                <FaChevronDown size={20}/>
             </Link>
         </div>
     );

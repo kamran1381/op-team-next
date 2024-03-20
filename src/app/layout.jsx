@@ -9,7 +9,6 @@ import { Toaster } from 'sonner'
 
 
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
-
 export const metadata = {
   title: {
     default: "تیم طراحی او پی | op team | ساخت انواع سایت ",
@@ -21,6 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
+      <meta name="csrf-token" content="{{ csrf_token() }}" />
       <body className={SansWeb.className}>
         <Suspense fallback={<Loading />}>
           <Header />
