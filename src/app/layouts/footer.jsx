@@ -24,26 +24,26 @@ const Footer = () => {
                             </span>
                         </div>
 
-                        <div className='flex flex-col space-y-3 items-center'>
+                        <div className='flex flex-col space-y-3 items-start'>
                             <div className='flex items-center space-x-2 space-x-reverse'>
                                 <div className='bg-white p-1 rounded-xl shadow-md'>
-                                    <FaPhone size={25} className='bg-slate-900 text-white p-1 rounded-full shadow-md' />
+                                    <FaPhone size={25} className='bg-slate-900 text-white p-1 rounded-full shadow-md aspect-square' />
                                 </div>
                                 <span className='text-slate-50 text-base'>09031864296</span>
                             </div>
 
 
                             <div className='flex items-center space-x-2 space-x-reverse'>
-                                <CiClock2 size={35} className='bg-white p-1 rounded-xl shadow-md' />
+                                <CiClock2 size={32} className='bg-white p-1 rounded-xl shadow-md aspect-square' />
                                 <span className='text-slate-50 text-base'>شنبه تا چهارشنبه </span>
                             </div>
 
                         </div>
 
                         <div className='flex items-center space-x-3 space-x-reverse'>
-                            <FaInstagram className='text-white bg-gradient-to-tr p-px shadow-md from-yellow-500 to-purple-600 rounded-md' size={27} />
-                            <FaTelegram className='text-sky-500 bg-white rounded-full  shadow-md' size={27} />
-                            <FaLinkedinIn color='white' size={24} />
+                            <FaInstagram className='text-white bg-gradient-to-tr p-px aspect-square shadow-md from-yellow-500 to-purple-600 rounded-md' size={27} />
+                            <FaTelegram className='text-sky-500 bg-white rounded-full aspect-square shadow-md' size={27} />
+                            <FaLinkedinIn className='aspect-square' color='white' size={24} />
                         </div>
 
                     </div>
@@ -82,11 +82,11 @@ const Footer = () => {
                                     <div className="flex items-center relative w-full">
                                         <input
                                             type="text"
-                                            className="rounded-full py-2 px-4 border outline-none  w-full shadow-sm"
+                                            className="rounded-full py-2 px-4 border outline-none w-full shadow-sm"
                                             placeholder="ایمیل تان را وارد کنید"
 
                                         />
-                                        <button className="absolute -top-2 -left-2 rounded-full bg-blue-500 text-white px-4 py-2 m-2 hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="absolute  left-0 rounded-full bg-blue-500 text-white px-4 py-2  hover:bg-blue-600 transition-colors duration-300">
                                             عضویت
                                         </button>
                                     </div>

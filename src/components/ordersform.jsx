@@ -1,4 +1,5 @@
 'use client'
+import axios from '@/lib/axios';
 import React, { useState } from 'react';
 
 const Ordersform = () => {
@@ -31,20 +32,18 @@ const Ordersform = () => {
       formData.append('description', description);
 
       // You might need to handle the upload progress differently if the fetch API doesn't support progress updates natively
-      const response = await fetch('https://api.op-team.ir/orders/store', {
-        method: 'POST',
-        body: formData,
-        // Omitting Content-Type to let the browser set it automatically with the correct boundary
-      });
+      await axios.get('/sanctum/csrf-cookie').then(async res => {
+        const response = await axios.post('/api/orders/store', {});
 
-      if (response.ok) {
-        // Handle success
-        console.log('Data successfully sent to the server.');
-        setUploadProgress(100); // Assuming the upload is complete here for demonstration
-      } else {
-        // Handle error
-        console.error('Failed to send data to the server.');
-      }
+        if (response.ok) {
+          // Handle success
+          console.log('Data successfully sent to the server.');
+          setUploadProgress(100); // Assuming the upload is complete here for demonstration
+        } else {
+          // Handle error
+          console.error('Failed to send data to the server.');
+        }
+      })
     } catch (error) {
       console.error('Error occurred while sending data:', error);
     }
