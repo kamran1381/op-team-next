@@ -13,6 +13,8 @@ const Ordersform = () => {
     if (file) {
       setImageFile(file);
     }
+  
+
 
     console.log(file)
   };
@@ -32,8 +34,8 @@ const Ordersform = () => {
       formData.append('description', description);
 
       // You might need to handle the upload progress differently if the fetch API doesn't support progress updates natively
-      await axios.get('/sanctum/csrf-cookie').then(async res => {
-        const response = await axios.post('/api/orders/store', {});
+      await axios.get('/sanctum/csrf-cookie').then(async () => {
+        const response = await axios.post('/api/orders/store', formData);
 
         if (response.ok) {
           // Handle success

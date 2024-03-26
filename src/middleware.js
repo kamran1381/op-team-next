@@ -1,19 +1,9 @@
-import { NextResponse } from 'next/server'
-import { auth } from './lib/auth'
-export async function middleware(request) {
+import NextAuth from 'next-auth'
+import { authConfig } from './lib/auth.config'
 
-    const session = await auth()
-    if (!session) {
-        if (request.nextUrl.pathname.startsWith('/userpanel')) {
-            return NextResponse.redirect(new URL('/loginfirst', request.url))
-        }
-        if (request.nextUrl.pathname.startsWith('/admin')) {
-            return NextResponse.redirect(new URL('/accessdenied', request.url))
-        }
-    }
-    return NextResponse.next()
-}
+export default NextAuth(authConfig).auth;
+
 
 export const config = {
-    matcher: ['/userpanel/:path*', '/admin/:path*'],
+    matcher: ['/((?!api|static|.*\\..*|_next).*)'],
 }

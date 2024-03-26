@@ -6,8 +6,6 @@ import Panelheader from '../layouts/header';
 
 const Account = async () => {
 
-
-
     return (
         <>
             <div className='w-full flex flex-col justify-center items-center sm:p-5 p-1 relative '>
