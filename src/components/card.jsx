@@ -5,90 +5,84 @@ import { FaLinkedinIn, FaStar } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import Link from 'next/link'
 import { IoPersonSharp } from "react-icons/io5";
+import Image from 'next/image'
 
 
 const Card = () => {
 
-    const [cartsData, setCartsData] = useState([1,2,3,4])
+    const [cartsData, setCartsData] = useState([1, 2, 3, 4])
 
-    // useEffect(() => {
-    //     try {
-    //         axios.get('/sanctum/csrf-cookie').then(res => {
-    //             const response = axios.get('api/carts/show')
-    //             if (!response.status === 200) {
-    //                 console.log(response)
-    //                 return []
-    //             }
-    //             if (response.status === 200) {
-    //                 // Handle response if necessary
-    //                 console.log(' با موفقیت')
-    //                 setCartsData ([1,2,3,4])
-    //             }
+    useEffect(() => {
+        try {
+            axios.get('/sanctum/csrf-cookie').then(async () => {
+                const response = await axios.get('api/carts/show');
+                if (response.status === 200) {
+                    // Handle response if necessary
+                    setCartsData(response.data)
+                }
+            })
 
-    //         })
+        } catch (error) {
+            setCartsData([1, 2, 3, 4])
+            console.log(error);
+        }
 
-    //     } catch (error) {
-    //         setCartsData ([1,2,3,4])
-    //         console.log(error);
-    //         // setErrorMsg(JSON.parse(error.message));
-    //     }
-
-    // }, [])
+    }, [])
 
 
     return (
         <>
 
-            
+
             {
                 cartsData ? (
-                cartsData?.map((item, index) => (
-                    <div key={index} className='w-72 h-[452px] bg-blue-700 rounded-3xl p-5 flex flex-col justify-between overflow-hidden relative'>
-                        <div className='absolute w-full h-full top-0 right-0 z-0'>
-                            <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 left-0 top-10 rotate-45 z-10'></div>
-                            <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 shadow left-8 top-1/2 -translate-y-1/2 rotate-45 z-20'></div>
-                            <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 left-0 bottom-10 rotate-45 z-10'></div>
-                        </div>
-                        <div className='w-full flex items-center justify-between z-10'>
-                            <div className='flex flex-col space-y-2'>
-                                <span className='lg:text-2xl text-xl font-extrabold text-white'>
-                                    {index}
-                                    {/* {item.name} */}
-                                </span>
-                                <span className='text-xs font-bold text-white'>
-                                    {index}
-                                    {/* {item.title} */}
-                                </span>
-                                <span className='w-7 h-1 bg-white rounded-full'></span>
+                    cartsData?.map((item, index) => (
+                        <div key={index} className='w-72 h-[452px] bg-blue-700 rounded-3xl p-5 flex flex-col justify-between overflow-hidden relative'>
+                            <div className='absolute w-full h-full top-0 right-0 z-0'>
+                                <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 left-0 top-10 rotate-45 z-10'></div>
+                                <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 shadow left-8 top-1/2 -translate-y-1/2 rotate-45 z-20'></div>
+                                <div className='absolute w-36 h-36 rounded-3xl bg-blue-600 border border-blue-500 left-0 bottom-10 rotate-45 z-10'></div>
                             </div>
-                            <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center'>
-                                {index}
-                                {/* {item.pic} */}
-                                <IoPersonSharp size={50} className="text-slate-400" />
+                            <div className='w-full flex items-center justify-between z-10'>
+                                <div className='flex flex-col space-y-2'>
+                                    <span className='lg:text-2xl text-xl font-extrabold text-white'>
+                                        {item.name}
+                                    </span>
+                                    <span className='text-xs font-bold text-white'>
+                                        {item.title}
+                                    </span>
+                                    <span className='w-7 h-1 bg-white rounded-full'></span>
+                                </div>
+                                <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center relative'>
+                                    {
+                                        item.pic ?
+                                            <Image src={`/assets/images/${item.pic}`} className='object-contain' loading='lazy' fill alt='تصویر' />
+                                            :
+                                            <IoPersonSharp size={50} className="text-slate-400" />
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        <p className='font-bold text-white text-sm lg:text-base leading-8 text-justify z-10'>
-                            {index}
-                            {/* {item.description} */}
-                        </p>
-                        <div className='w-8 h-fit bg-[#0000003c] rounded-full flex flex-col items-center py-3 space-y-5 z-10'>
-                            <Link href={item.linkinsageram || '/'} className="flex items-center justify-center">
-                                <PiInstagramLogoFill className='text-xl text-white hover:text-gray-400 transition-colors' />
-                            </Link>
-                            <Link href={item.linkedin || '/'} className="flex items-center justify-center">
-                                <FaLinkedinIn className='text-xl text-white hover:text-gray-400 transition-colors' />
-                            </Link>
+                            <p className='font-bold text-white text-sm lg:text-base leading-8 text-justify z-10'>
+                                {item.description}
+                            </p>
+                            <div className='w-8 h-fit bg-[#0000003c] rounded-full flex flex-col items-center py-3 space-y-5 z-10'>
+                                <Link href={item.linkinsageram || '/'} className="flex items-center justify-center">
+                                    <PiInstagramLogoFill className='text-xl text-white hover:text-gray-400 transition-colors' />
+                                </Link>
+                                <Link href={item.linkedin || '/'} className="flex items-center justify-center">
+                                    <FaLinkedinIn className='text-xl text-white hover:text-gray-400 transition-colors' />
+                                </Link>
 
-                        </div>
-                        <div className='w-full flex justify-between self-end items-center z-10'>
-                            <div className='flex items-center space-x-1 space-x-reverse text-yellow-500'>
-                                <FaStar /> <span>4.8</span>
                             </div>
-                            <Link href={`CV/${item.id || index}`} className='w-1/3 py-1 bg-white rounded-2xl shadow shadow-gray-600 outline-none hover:bg-slate-200 transition-colors flex justify-center items-center'>رزومه</Link>
+                            <div className='w-full flex justify-between self-end items-center z-10'>
+                                <div className='flex items-center space-x-1 space-x-reverse text-yellow-500'>
+                                    <FaStar /> <span>4.8</span>
+                                </div>
+                                <Link href={`CV/${item.id || index}`} className='w-1/3 py-1 bg-white rounded-2xl shadow shadow-gray-600 outline-none hover:bg-slate-200 transition-colors flex justify-center items-center'>رزومه</Link>
+                            </div>
                         </div>
-                    </div>
-                ))) : (
-                    <p>no cart</p>
+                    ))) : (
+                    <p>API ERROR</p>
                 )
             }
         </>

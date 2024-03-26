@@ -1,13 +1,13 @@
 'use client';
-import {loginWithCredentials } from '@/lib/actions';
-import axios from '@/lib/axios';
+import { loginWithCredentials } from '@/lib/actions';
+// import axios from '@/lib/axios';
 import React, { useState } from 'react';
-import { FaChevronLeft } from 'react-icons/fa6';
+import { toast } from 'sonner';
+
 
 const LoginWithUserInfo = () => {
 
     const [isLoading, setIsLoading] = useState(false)
-    const [errorMsg, setErrorMsg] = useState(null)
 
     const [formData, setFormData] = useState({
         email: '',
@@ -30,28 +30,20 @@ const LoginWithUserInfo = () => {
     const loginFormSubmitHandler = async (event) => {
         event.preventDefault();
         setIsLoading(true)
-        setErrorMsg(null)
+
         try {
-            await axios.get('/sanctum/csrf-cookie').then(async res => {
-                const response = await axios.post('/login', {
-                    email: formData.email,
-                    password: formData.password
-                })
-                if (!response.status === 200) {
-                    console.log(response)
-                }
-                if (response.status === 200) {
-                    // Handle response if necessary
-                    console.log('شما با موفقیت وارد شدید')
-                }
-
-                await loginWithCredentials(response.status)
-
-            })
-
+            const login = await loginWithCredentials(formData);
+            toast(login, {
+                classNames: {
+                    toast: 'text-lime-500',
+                },
+            });
         } catch (error) {
-            console.log(error);
-            // setErrorMsg(JSON.parse(error.message));
+            toast("آدرس ایمیل و یا رمز عبور اشتباه است", {
+                classNames: {
+                    toast: 'text-rose-500',
+                },
+            });
         }
         finally {
             setIsLoading(false);
@@ -61,13 +53,6 @@ const LoginWithUserInfo = () => {
 
     return (
         <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>
-            {errorMsg &&
-                <ul className="bg-rose-300 w-full flex flex-col space-y-1 p-2 rounded-md">
-                    {errorMsg.map((item, index) => (
-                        <li key={index} className="text-white w-full flex items-center text-xs"><FaChevronLeft />{item.message}</li>
-                    ))}
-                </ul>
-            }
             <div className='w-full flex items-center space-x-reverse space-x-5'>
                 <input onChange={handleChange} name="email" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
             </div>

@@ -20,14 +20,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <meta name="csrf-token" content="{{ csrf_token() }}" />
       <body className={SansWeb.className}>
         <Suspense fallback={<Loading />}>
           <Header />
           {children}
           <Footer />
         </Suspense>
-        <Toaster />
+        <Toaster duration={5000} position='top-center' className={`${SansWeb.className} text-center flex justify-center items-center text-sm font-bold ` } />
       </body>
     </html>
   );

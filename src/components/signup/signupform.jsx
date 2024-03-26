@@ -1,8 +1,14 @@
 'use client'
+import { navigate } from '@/lib/actions';
 import axios from '@/lib/axios';
 import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha"
+import { toast } from 'sonner';
+
 const SignupForm = () => {
+
+    const [isLoading, setIsLoading] = useState(false)
+
 
     const [formData, setFormData] = useState({
         username: '',
@@ -24,9 +30,11 @@ const SignupForm = () => {
     };
 
     const signIn = async () => {
+        setIsLoading(true);
+
         try {
             await axios.get('/sanctum/csrf-cookie', {
-            }).then(async res => {
+            }).then(async () => {
                 const response = await axios.post('/signup', {
                     name: formData.username,
                     email: formData.email,
@@ -34,17 +42,33 @@ const SignupForm = () => {
                     password_confirmation: formData.confirmPassword
                 })
                 if (!response.status === 200) {
-                    console.log(response)
+                    toast("درخواست شما با خطا مواجه شد لطفا مجدد تلاش کنید", {
+                        classNames: {
+                            toast: 'text-rose-500',
+                        },
+                    });
+                    
                 }
                 if (response.status === 200) {
                     // Handle response if necessary
-                    console.log('شما با موفقیت ثبت نام شدید')
+                    toast("شما با موفقیت ثبت نام شدید", {
+                        classNames: {
+                            toast: 'text-lime-500',
+                        },
+                    });
+                    navigate('/login')
                 }
             })
 
         } catch (error) {
-            console.log(error);
-            // setErrorMsg(JSON.parse(error.message));
+            toast(error.response.data.message, {
+                classNames: {
+                    toast: 'text-rose-500',
+                },
+            });
+        }
+        finally {
+            setIsLoading(false);
         }
     }
 
@@ -110,7 +134,7 @@ const SignupForm = () => {
                         size="normal"
                     />
                 )}
-                <button className='bg-blue-700 text-white w-1/2 sm:w-1/3 p-3 rounded-2xl hover:bg-blue-600 transition-colors'>ثبت نام</button>
+                <button className='bg-blue-700 text-white w-1/2 sm:w-1/3 p-3 rounded-2xl hover:bg-blue-600 transition-colors disabled:bg-slate-500' disabled={isLoading}> {isLoading ? 'در حال اجرا ...' : 'ثبت نام'}</button>
             </form>
 
         </>
