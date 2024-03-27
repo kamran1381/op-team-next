@@ -32,7 +32,7 @@ export const loginWithCredentials = async (fromData) => {
                     redirect: true,
                     redirectTo: '/'
                 })
-                return response.data.message
+                return 'ورود موفق'
             }
         }).catch(error => {
             throw error

@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 const Card = () => {
 
-    const [cartsData, setCartsData] = useState([1, 2, 3, 4])
+    const [cartsData, setCartsData] = useState([])
 
     useEffect(() => {
         try {
@@ -21,10 +21,8 @@ const Card = () => {
                     setCartsData(response.data)
                 }
             })
-
         } catch (error) {
-            setCartsData([1, 2, 3, 4])
-            console.log(error);
+            setCartsData([])
         }
 
     }, [])
@@ -53,10 +51,11 @@ const Card = () => {
                                     </span>
                                     <span className='w-7 h-1 bg-white rounded-full'></span>
                                 </div>
-                                <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center relative'>
+                                <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center relative overflow-hidden'>
                                     {
+                                        
                                         item.pic ?
-                                            <Image src={`/assets/images/${item.pic}`} className='object-contain' loading='lazy' fill alt='تصویر' />
+                                            <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/carts/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority/>
                                             :
                                             <IoPersonSharp size={50} className="text-slate-400" />
                                     }

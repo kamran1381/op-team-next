@@ -2,7 +2,7 @@
 const nextConfig = {
     output:"standalone",
     images: {
-      
+    
         remotePatterns: [
             {
                 protocol: 'https',
@@ -14,6 +14,18 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'lh3.googleusercontent.com',
+                port: '',
+                pathname: '**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '8000',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'api.op-team.ir',
                 port: '',
                 pathname: '**',
             },
