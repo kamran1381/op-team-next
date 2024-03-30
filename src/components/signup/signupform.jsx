@@ -61,15 +61,18 @@ const SignupForm = () => {
             })
 
         } catch (error) {
-           if (error.response.data.message && error.response.data.message === "The email has already been taken.") {
-                toast("آدرس ایمیل تکراری است", {
-                    classNames: {
-                        toast: 'text-rose-500',
-                    },
-                });
-           }else{
-            console.log(error)
-           }
+        //    if (error && error.response.data.message === "The email has already been taken.") {
+        //         toast("آدرس ایمیل تکراری است", {
+        //             classNames: {
+        //                 toast: 'text-rose-500',
+        //             },
+        //         });
+        //    }else{
+        //     console.log(error)
+        //    }
+
+
+        console.log(error)
         }
         finally {
             setIsLoading(false);
