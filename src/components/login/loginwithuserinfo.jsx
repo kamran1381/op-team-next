@@ -39,11 +39,12 @@ const LoginWithUserInfo = () => {
                 },
             });
         } catch (error) {
-            toast("آدرس ایمیل و یا رمز عبور اشتباه است", {
-                classNames: {
-                    toast: 'text-rose-500',
-                },
-            });
+            // toast("آدرس ایمیل و یا رمز عبور اشتباه است", {
+            //     classNames: {
+            //         toast: 'text-rose-500',
+            //     },
+            // });
+            console.log(error)
         }
         finally {
             setIsLoading(false);

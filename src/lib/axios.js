@@ -9,6 +9,7 @@ const axios = Axios.create({
     withXSRFToken: true,
     headers: {
         Accept: 'application/json',
+
     }
 })
 

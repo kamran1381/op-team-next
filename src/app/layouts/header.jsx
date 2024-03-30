@@ -1,12 +1,13 @@
 'use client'
 import React from 'react';
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 import HeaderLinks from '@/components/headerlinks';
 import ScrollLinks from '@/components/scrolllinks';
 import LoginHeaderButton from '@/components/header/loginheaderbutton';
 import { FaChevronDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
+
 const Header = () => {
     const linkData = [
         {
@@ -17,10 +18,9 @@ const Header = () => {
             name: 'سفارش سایت',
             href: '/userpanel/orders',
         },
-    ]
+    ];
 
     const scrollLinks = [
-
         {
             name: 'درباره ما',
             scrollHash: 'aboutUs'
@@ -29,9 +29,7 @@ const Header = () => {
             name: 'پروژه‌های ما',
             scrollHash: 'ourProjects'
         }
-    ]
-
-    
+    ];
 
     const url = usePathname();
 
@@ -43,7 +41,7 @@ const Header = () => {
                 </Link>
                 <span className="text-indigo-900 text-lg font-extrabold">او پی تیم</span>
             </div>
-            <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md z-10'>
+            <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md z-50 fixed top-0'>
                 <Link href='/' className='lg:w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl hidden lg:flex justify-center items-center'>
                     <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
                 </Link>
