@@ -6,7 +6,7 @@ import Loading from './loading';
 import Header from './layouts/header';
 import Footer from './layouts/footer';
 import { Toaster } from 'sonner'
-
+import { SessionProvider } from 'next-auth/react';
 
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
 export const metadata = {
@@ -22,11 +22,13 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={SansWeb.className}>
         <Suspense fallback={<Loading />}>
-          <Header />
-          {children}
-          <Footer />
+          <SessionProvider>
+            <Header />
+          </SessionProvider>
+            {children}
+            <Footer />
         </Suspense>
-        <Toaster duration={5000} position='top-center' className={`${SansWeb.className} text-center flex justify-center items-center text-sm font-bold ` } />
+        <Toaster duration={5000} position='top-center' className={`${SansWeb.className} text-center flex justify-center items-center text-sm font-bold `} />
       </body>
     </html>
   );

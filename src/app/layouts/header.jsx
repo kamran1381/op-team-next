@@ -1,16 +1,21 @@
+'use client'
 import React from 'react';
 import Image from 'next/image'
 import Link from 'next/link'
 import HeaderLinks from '@/components/headerlinks';
 import ScrollLinks from '@/components/scrolllinks';
-import { IoPersonSharp } from 'react-icons/io5';
 import LoginHeaderButton from '@/components/header/loginheaderbutton';
 import { FaChevronDown } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 const Header = () => {
     const linkData = [
         {
+            name: 'خانه',
+            href: '/',
+        },
+        {
             name: 'سفارش سایت',
-            href: '/orderWebsite',
+            href: '/userpanel/orders',
         },
     ]
 
@@ -26,8 +31,9 @@ const Header = () => {
         }
     ]
 
+    
 
-
+    const url = usePathname();
 
     return (
         <div className='w-full flex-col flex justify-center items-center py-5 lg:px-5 px-2 relative'>
@@ -44,20 +50,20 @@ const Header = () => {
                 <div className='lg:w-11/12 w-full bg-slate-100 h-full rounded-xl flex items-center justify-between'>
                     <div className=' w-full flex items-center lg:space-x-4 lg:space-x-reverse lg:pr-10'>
                         <HeaderLinks data={linkData} />
-                        <ScrollLinks data={scrollLinks} />
+                        {url=='/' ? <ScrollLinks data={scrollLinks} /> : null}
                     </div>
                     <div className='w-fit h-full flex lg:justify-center justify-end items-center sm:pl-8 pl-2'>
                         <LoginHeaderButton />
                     </div>
                 </div>
             </div>
-            <Link href='tel:09925616704' className='sm:w-80 w-52 flex flex-col space-y-2 items-center  bg-[#198BE852] z-0 px-3 pt-2 pb-1 text-indigo-950 text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform'>
-                <div className='flex items-center justify-between w-full'>
+            <div className='sm:w-80 w-52 flex flex-col space-y-2 items-center  bg-[#198BE852] z-0 px-3 pt-2 pb-1 text-indigo-950 text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform'>
+                <Link href='tel:09925616704'  className='flex items-center justify-between w-full'>
                     <span>تماس با ما</span>
                     <span>09925616704</span>
-                </div>
-                <FaChevronDown size={20}/>
-            </Link>
+                </Link>
+                <FaChevronDown size={15}/>
+            </div>
         </div>
     );
 }

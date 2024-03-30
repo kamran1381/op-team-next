@@ -1,5 +1,5 @@
 'use server'
-import { signIn, signOut } from "./auth"
+import { auth, signIn, signOut } from "./auth"
 import { redirect } from 'next/navigation'
 import axios from "./axios"
 
@@ -7,9 +7,13 @@ export const navigate = async (url) => {
     redirect(url)
 }
 
+export const isLogin = () => {
+    const isAuth = auth()
+    return isAuth
+}
+
 export const handleSignOut = async () => {
     await signOut({ redirectTo: "/login", redirect: true });
-
 }
 
 export const handleGithubLogin = async () => {
@@ -22,7 +26,7 @@ export const handleGoogleLogin = async () => {
 
 export const loginWithCredentials = async (fromData) => {
     return await axios.get('/sanctum/csrf-cookie').then(async () => {
-       return await axios.post('/login', {
+        return await axios.post('/login', {
             email: fromData.email,
             password: fromData.password
         }).then(async (response) => {
