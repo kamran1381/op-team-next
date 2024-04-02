@@ -10,6 +10,7 @@ import { useSession, getSession } from 'next-auth/react';
 const LoginHeaderButton = () => {
     
     const { data: session, status } = useSession();
+    console.log(status)
 
     return (
         <>
