@@ -34,7 +34,7 @@ const Header = () => {
     const url = usePathname();
 
     return (
-        <div className='w-full flex-col flex justify-center items-center py-5 lg:px-5 px-2 fixed z-20'>
+        <div className='w-full flex-col flex justify-center items-center py-5 lg:px-5 px-2 fixed z-50'>
            
             <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md '>
                 <Link href='/' className='lg:w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl hidden lg:flex justify-center items-center'>
