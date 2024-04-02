@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Sectionone = () => {
     return (
-        <div className='xl:w-1/2 w-full h-fit max-w-7xl flex lg:flex-row flex-col-reverse xl:justify-center justify-around items-center lg:p-2 lg:pb-0'>
+        <div className='xl:w-1/2 w-full h-fit max-w-7xl flex lg:flex-row flex-col-reverse xl:justify-center justify-around items-center lg:p-2 lg:pb-0 mt-32'>
             <div className='flex flex-col lg:w-1/3 lg:items-start w-full items-center space-y-3 p-5 '>
                 <span className='w-fit bg-indigo-100 px-5 py-1 rounded-full text-xs font-extrabold text-indigo-950'>به ما اعتماد کنید</span>
                 <p className='text-indigo-950 xl:text-2xl text-xl font-extrabold leading-10 lg:text-right text-center'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</p>
