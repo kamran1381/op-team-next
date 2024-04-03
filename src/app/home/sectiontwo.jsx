@@ -18,7 +18,13 @@ const Sectiontwo = () => {
                     <span className='lg:text-xl text-sm font-extrabold text-slate-400 w-full lg:w-2/3 leading-10'>تیم اوپی تاسیس شده در 1402/10/1 ، این تیم تشکیل شده از چند فریلنسر  که تجربه کافی در حوزه برنامه نویسی  را دارا هستند. یک تیم خوش ذوق و خلاق در زمینه ساخت سایت های شخصی ،شرکتی، فروشگاهی و ... که شعارشان نوآوری و ایده های ناب هست و از مهم ترین حسن های این تیم نظم و مسعولیت پذیری است. حسن انتخاب شما سبب رضایت شما خواهد شد.</span>
                 </div>
             </div>
-            <div className='absolute top-1/4 left-1/4'>
+            <div className='absolute top-20 right-1/4'>
+                <AnimateCircles />
+            </div>
+            <div className='absolute top-1/2 left-20'>
+                <AnimateCircles />
+            </div>
+            <div className='absolute bottom-2 right-1/4'>
                 <AnimateCircles />
             </div>
         </div>

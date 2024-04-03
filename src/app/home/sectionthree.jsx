@@ -12,7 +12,13 @@ const Sectionthree = () => {
                     <Card />
                 </div>
             </div>
-            <div className='absolute top-0 right-1/4'>
+            <div className='absolute top-10 right-1/4'>
+                <AnimateCircles />
+            </div>
+            <div className='absolute top-1/2 left-1/4'>
+                <AnimateCircles />
+            </div>
+            <div className='absolute bottom-2 right-1/3'>
                 <AnimateCircles />
             </div>
         </div>

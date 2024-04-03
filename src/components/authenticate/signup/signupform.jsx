@@ -101,7 +101,7 @@ const SignupForm = () => {
                 <div className='w-full flex sm:flex-row flex-col items-center space-y-4 sm:space-y-0 sm:space-x-reverse sm:space-x-5'>
                     <input
                         type="text"
-                        className='sm:w-1/3 w-full  border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
+                        className='sm:w-1/3 w-full shadow  border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
                         placeholder='نام کاربری'
                         name="username"
                         value={formData.username}
@@ -109,7 +109,7 @@ const SignupForm = () => {
                     />
                     <input
                         type="text"
-                        className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
+                        className='w-full border shadow p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
                         placeholder='آدرس ایمیل خود را وارد کنید'
                         name="email"
                         value={formData.email}
@@ -119,7 +119,7 @@ const SignupForm = () => {
                 <div className='w-full flex sm:flex-row flex-col items-center space-y-4 sm:space-y-0 sm:space-x-reverse sm:space-x-5'>
                     <input
                         type="password"
-                        className='sm:w-1/2 w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
+                        className='sm:w-1/2 w-full shadow border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
                         placeholder='رمز عبور خود را وارد کنید'
                         name="password"
                         value={formData.password}
@@ -127,7 +127,7 @@ const SignupForm = () => {
                     />
                     <input
                         type="password"
-                        className='sm:w-1/2 w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
+                        className='sm:w-1/2 w-full shadow border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors'
                         placeholder='رمز عبور خود را مجددا تکرار کنید'
                         name="confirmPassword"
                         value={formData.confirmPassword}
