@@ -18,10 +18,10 @@ const Sectionone = () => {
                     </div>
                     <Image src='/assets/images/sectionOneImg.png' className='object-contain' loading='lazy' fill alt='تصویر' />
                 </div>
-               
-                 <div className='flex justify-center flex-col'>
-                 <Circleheader/>
-                 </div>
+
+                <div className='flex justify-center flex-col'>
+                    <Circleheader />
+                </div>
             </div>
         </>
     );

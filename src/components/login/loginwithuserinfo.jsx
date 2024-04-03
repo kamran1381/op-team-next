@@ -1,6 +1,5 @@
 'use client';
 import { loginWithCredentials } from '@/lib/actions';
-// import axios from '@/lib/axios';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -33,18 +32,27 @@ const LoginWithUserInfo = () => {
 
         try {
             const login = await loginWithCredentials(formData);
-            toast(login, {
+            toast('ورود موفق', {
                 classNames: {
                     toast: 'text-lime-500',
                 },
             });
         } catch (error) {
-            // toast("آدرس ایمیل و یا رمز عبور اشتباه است", {
-            //     classNames: {
-            //         toast: 'text-rose-500',
-            //     },
-            // });
-            console.log(error)
+
+            if (error.data) {
+                toast(error.data.message, {
+                    classNames: {
+                        toast: 'text-rose-500',
+                    },
+                });
+            }else{
+                toast('درخواست ناموفق , لطفا مجددا تلاش کنید', {
+                    classNames: {
+                        toast: 'text-rose-500',
+                    },
+                });
+            }
+
         }
         finally {
             setIsLoading(false);
