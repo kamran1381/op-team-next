@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import LoginForm from '@/components/login/loginform';
-import Sidebar from '../layouts/sidebar';
+import LoginForm from '@/components/authenticate/login/loginform';
+import Sidebar from '../../../components/authenticate/sidebar';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation'
 
@@ -16,7 +16,7 @@ const Login = async () => {
     return (
         <>
             <div className='w-full flex flex-col justify-center items-center p-2 lg:p-5'>
-                <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl '>
+                <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl mt-24'>
                     <div className='sm:w-3/4 w-full flex-col lg:flex-row flex justify-center items-center lg:space-x-3 lg:space-x-reverse px-1 space-y-3 lg:space-y-0'>
                         <Sidebar />
 

@@ -63,14 +63,14 @@ const LoginWithUserInfo = () => {
     return (
         <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="email" type="text" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
+                <input onChange={handleChange} name="email" type="text" className='w-full border shadow p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='آدرس ایمیل خود را وارد کنید' />
             </div>
             <div className='w-full flex items-center space-x-reverse space-x-5'>
-                <input onChange={handleChange} name="password" type="password" className='w-full border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
+                <input onChange={handleChange} name="password" type="password" className='w-full shadow border p-3 rounded-2xl text-sm outline-none hover:bg-slate-200 transition-colors' placeholder='رمز عبور خود را وارد کنید' />
             </div>
             <div className='w-full flex lg:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
                 <div className='flex space-x-2 space-x-reverse items-center'>
-                    <input name="rememberMe" type="checkbox" className='w-4 h-4 accent-blue-700' />
+                    <input name="rememberMe" type="checkbox" className='w-4 h-4 accent-blue-700 shadow' />
                     <span className='lg:text-sm text-xs text-indigo-950 font-bold'>مرا به خاطر بسپار</span>
                 </div>
             </div>

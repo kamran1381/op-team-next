@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         <Suspense fallback={<Loading />}>
           <SessionProvider>
             <Header />
-            {children}
+              {children}
             <Footer />
           </SessionProvider>
         </Suspense>
