@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../layouts/sidebar';
+import Sidebar from '../../../components/dashboard/sidebar';
 import Alluserstable from '@/components/dashboard/alluserstable';
 const AllUsers = () => {
     return (

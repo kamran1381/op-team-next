@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
         <Suspense fallback={<Loading />}>
           <SessionProvider>
             <Header />
-          </SessionProvider>
             {children}
             <Footer />
+          </SessionProvider>
         </Suspense>
         <Toaster duration={5000} position='top-center' className={`${SansWeb.className} text-center flex justify-center items-center text-sm font-bold `} />
       </body>

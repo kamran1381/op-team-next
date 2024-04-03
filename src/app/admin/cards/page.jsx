@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../layouts/sidebar';
+import Sidebar from '../../../components/dashboard/sidebar';
 import Allcardstable from '@/components/dashboard/cardshandle/allcardstable';
 import { FaPlusCircle } from 'react-icons/fa';
 import Link from 'next/link';
