@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../layouts/sidebar';
+import Sidebar from '../../../components/dashboard/sidebar';
 import Allorderstable from '@/components/dashboard/allorderstable';
 const AllOrders = () => {
     return (

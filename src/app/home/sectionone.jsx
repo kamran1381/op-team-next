@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import Circleheader from '@/components/circleheader/circleheader';
+import AnimateCircles from '@/components/animatecircles';
 const Sectionone = () => {
 
 
     return (
         <>
-            <div className='xl:w-1/2 w-full h-fit max-w-7xl flex lg:flex-row flex-col-reverse xl:justify-center justify-around items-center lg:p-2 lg:pb-0 mt-32  relative'>
+            <div className='xl:w-1/2 w-full h-fit max-w-7xl flex lg:flex-row flex-col-reverse xl:justify-center justify-around items-center lg:p-2 lg:pb-0 mt-32 relative'>
                 <div className='flex flex-col lg:w-1/3 lg:items-start w-full items-center space-y-3 p-5 z-20'>
                     <span className='w-fit bg-indigo-100 px-5 py-1 rounded-full text-xs font-extrabold text-indigo-950'>به ما اعتماد کنید</span>
                     <p className='text-indigo-950 xl:text-2xl text-xl font-extrabold leading-10 lg:text-right text-center'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</p>
@@ -18,9 +18,8 @@ const Sectionone = () => {
                     </div>
                     <Image src='/assets/images/sectionOneImg.png' className='object-contain' loading='lazy' fill alt='تصویر' />
                 </div>
-
-                <div className='flex justify-center flex-col'>
-                    <Circleheader />
+                <div className='absolute top-1/2 left-1/2'>
+                    <AnimateCircles />
                 </div>
             </div>
         </>

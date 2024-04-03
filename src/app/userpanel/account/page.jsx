@@ -1,10 +1,10 @@
 import React from 'react';
-import Sidebar from '../layouts/sidebar';
 import { MdCloudUpload } from "react-icons/md";
 import { VscRequestChanges } from "react-icons/vsc";
-import Panelheader from '../layouts/header';
+import Panelheader from '@/components/userPanel/panelheader';
+import Sidebar from '@/components/userPanel/sidebar';
 
-const Account = async () => {
+const Account = () => {
 
     return (
         <>

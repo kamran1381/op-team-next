@@ -1,7 +1,7 @@
 import React from 'react';
-import Sidebar from '../layouts/sidebar';
 import Ordersform from '@/components/ordersform';
-import Panelheader from '../layouts/header';
+import Panelheader from '@/components/userPanel/panelheader';
+import Sidebar from '@/components/userPanel/sidebar';
 
 
 const Order =async () => {
