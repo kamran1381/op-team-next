@@ -1,6 +1,7 @@
 'use client'
 import axios from '@/lib/axios';
 import React, { useState } from 'react';
+import { toast } from 'sonner';
 
 const Ordersform = () => {
   const [imageFile, setImageFile] = useState(null); // Updated to store the file object directly
@@ -13,7 +14,7 @@ const Ordersform = () => {
     if (file) {
       setImageFile(file);
     }
-  
+
 
 
     console.log(file)
@@ -35,11 +36,14 @@ const Ordersform = () => {
 
       // You might need to handle the upload progress differently if the fetch API doesn't support progress updates natively
       await axios.get('/sanctum/csrf-cookie').then(async () => {
-        const response = await axios.post('/api/orders/store', formData);
-
-        if (response.ok) {
+        const response = await axios.post('/api/orders/1/store', formData);
+        if (response.status === 200) {
           // Handle success
-          console.log('Data successfully sent to the server.');
+          toast('ثبت موفق', {
+            classNames: {
+              toast: 'text-lime-500',
+            },
+          });
           setUploadProgress(100); // Assuming the upload is complete here for demonstration
         } else {
           // Handle error
