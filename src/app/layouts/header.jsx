@@ -40,7 +40,7 @@ const Header = () => {
                 <Link href='/' className='lg:w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl hidden lg:flex justify-center items-center'>
                     <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
                 </Link>
-                <div className='lg:w-11/12 w-full bg-slate-100 h-full rounded-xl flex items-center justify-between z-10'>
+                <div className='lg:w-11/12 w-full bg-[#FFFFFF] h-full rounded-xl flex items-center justify-between z-10'>
                     <div className=' w-full flex items-center lg:space-x-4 lg:space-x-reverse lg:pr-10'>
                         <HeaderLinks data={linkData} />
                         {url=='/' ? <ScrollLinks data={scrollLinks} /> : null}
