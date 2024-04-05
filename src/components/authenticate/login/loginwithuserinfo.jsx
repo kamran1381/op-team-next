@@ -2,10 +2,13 @@
 import { loginWithCredentials } from '@/lib/actions';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-
-
+import {z} from 'zod'
+const schema = z.object({
+    email: z.string().email('آدرس ایمیل معتبر نیست'),
+    password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
+});
 const LoginWithUserInfo = () => {
-
+     
     const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
@@ -23,15 +26,15 @@ const LoginWithUserInfo = () => {
         }));
     };
 
-
-
-
-    const loginFormSubmitHandler = async (event) => {
+    const loginFormSubmitHandler =  (event) => {
+     
         event.preventDefault();
         setIsLoading(true)
 
         try {
-            const login = await loginWithCredentials(formData);
+             
+            const login =  loginWithCredentials(formData);
+            console.log(login)
             toast('ورود موفق', {
                 classNames: {
                     toast: 'text-lime-500',
@@ -46,11 +49,12 @@ const LoginWithUserInfo = () => {
                     },
                 });
             }else{
-                toast('درخواست ناموفق , لطفا مجددا تلاش کنید', {
-                    classNames: {
-                        toast: 'text-rose-500',
-                    },
-                });
+                // toast('درخواست ناموفق , لطفا مجددا تلاش کنید', {
+                //     classNames: {
+                //         toast: 'text-rose-500',
+                //     },
+                // });
+                console.log(error)
             }
 
         }
@@ -59,6 +63,8 @@ const LoginWithUserInfo = () => {
         }
 
     }
+
+
 
     return (
         <form onSubmit={loginFormSubmitHandler} className='sm:w-2/3 w-full p-5 pb-0 flex flex-col items-center space-y-5'>

@@ -25,11 +25,13 @@ export const handleGoogleLogin = async () => {
 }
 
 export const loginWithCredentials = async (fromData) => {
+
     return await axios.get('/sanctum/csrf-cookie').then(async () => {
         return await axios.post('/login', {
             email: fromData.email,
             password: fromData.password
         }).then(async (response) => {
+            console.log(response)
             if (response.status === 200) {
                 await signIn('credentials', {
                     user: JSON.stringify(response.data.user),
@@ -39,6 +41,7 @@ export const loginWithCredentials = async (fromData) => {
                 return 'ورود موفق'
             }
         }).catch(error => {
+            console.log(error)
             throw error
         });
     }).catch(error => {
@@ -47,3 +50,4 @@ export const loginWithCredentials = async (fromData) => {
 
 
 }  
+
