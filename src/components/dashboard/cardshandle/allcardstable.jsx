@@ -79,7 +79,7 @@ const Allcardstable = () => {
                             <td className="px-6 py-4 text-center text-sm whitespace-nowrap">
                                 <button onClick={() =>
                                     toast.custom((t) => (
-                                        <div className='bg-slate-100 shadow px-5 py-4 text-slate-800 rounded-md flex items-center space-x-4 space-x-reverse'>
+                                        <div className='bg-slate-100 shadow px-5 py-4 text-[#00004E] rounded-md flex items-center space-x-4 space-x-reverse'>
                                             <span className='font-bold'>آیا اطمینان دارید ؟ </span>
                                             <button className='px-5 py-2 text-xs bg-rose-500 text-slate-100 rounded-md' onClick={() => toast.dismiss(t)}>خیر</button>
                                             <button className='px-5 py-2 text-xs bg-lime-500 text-slate-100 rounded-md' onClick={() => {handleDeleteCard(item);toast.dismiss(t)}}>بله</button>

@@ -71,7 +71,7 @@ const LoginWithUserInfo = () => {
             <div className='w-full flex lg:flex-row flex-col space-y-5 lg:space-y-0 items-center justify-between '>
                 <div className='flex space-x-2 space-x-reverse items-center'>
                     <input name="rememberMe" type="checkbox" className='w-4 h-4 accent-blue-700 shadow' />
-                    <span className='lg:text-sm text-xs text-indigo-950 font-bold'>مرا به خاطر بسپار</span>
+                    <span className='lg:text-sm text-xs text-[#00004E] font-bold'>مرا به خاطر بسپار</span>
                 </div>
             </div>
             <button type="submit" className='bg-blue-700 text-white w-1/3 p-3 rounded-2xl hover:bg-blue-600 transition-colors disabled:bg-slate-500' disabled={isLoading}> {isLoading ? 'در حال اجرا ...' : 'ورود'}</button>

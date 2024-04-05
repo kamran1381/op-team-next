@@ -5,11 +5,12 @@ import { FaPhone } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
+import Instagram from '@/components/icons/instagram';
 
 
 const Footer = () => {
     return (
-        <div className='w-full flex justify-center bg-gradient-to-bl from-[#00FFF0] to-[#0012B7] xl:px-0 px-2'>
+        <div className='w-full flex justify-center bg-gradient-to-b from-[#01C2E1] from-[-10%] to-[#0013B7] to-80%  xl:px-0 px-2'>
             <div className='w-full max-w-7xl flex flex-col py-5 space-y-3'>
                 <div className='w-full flex flex-col lg:flex-row lg:items-start lg:justify-between items-center space-y-14 lg:space-y-0 py-20'>
 
@@ -41,7 +42,7 @@ const Footer = () => {
                         </div>
 
                         <div className='flex items-center space-x-3 space-x-reverse'>
-                            <FaInstagram className='text-white bg-gradient-to-tr p-px aspect-square shadow-md from-yellow-500 to-purple-600 rounded-md' size={27} />
+                            <Instagram />
                             <FaTelegram className='text-sky-500 bg-white rounded-full aspect-square shadow-md' size={27} />
                             <FaLinkedinIn className='aspect-square' color='white' size={24} />
                         </div>
@@ -73,20 +74,20 @@ const Footer = () => {
 
 
                         <div className=' w-full flex lg:justify-end justify-center'>
-                            <div className="flex justify-center items-center bg-slate-100 rounded-3xl px-8 py-6">
+                            <div className="flex justify-center items-center bg-slate-100 rounded-[34px] px-20 py-6">
                                 <div className="flex flex-col items-center space-y-5 ">
-                                    <span className="text-center text-sm w-full text-indigo-900 font-bold">
+                                    <span className="text-center text-sm w-full text-[#00004E] font-bold">
                                         برای اطلاع از اخبار سایت آدرس ایمیل خود را وارد کنید
                                     </span>
 
-                                    <div className="flex items-center relative w-full">
+                                    <div className="flex items-center relative w-full h-7 overflow-hidden rounded-full shadow-md shadow-[#0000005c]">
                                         <input
                                             type="text"
-                                            className="rounded-full py-2 px-4 border outline-none w-full shadow-sm"
+                                            className="px-4 border outline-none w-full h-full text-slate-600 text-xs rounded-full"
                                             placeholder="ایمیل تان را وارد کنید"
 
                                         />
-                                        <button className="absolute  left-0 rounded-full bg-blue-500 text-white px-4 py-2  hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="absolute left-0 h-full rounded-full bg-[#0055FF] text-sm text-white px-4  hover:bg-blue-600 transition-colors duration-300">
                                             عضویت
                                         </button>
                                     </div>

@@ -16,7 +16,7 @@ const Account = () => {
                             <Panelheader />
                             <div className='flex justify-center items-center py-10'>
                                 <div className='flex flex-col items-center px-4'>
-                                    <span className='text-lg mb-2 font-bold text-indigo-950'>درخواست ها</span>
+                                    <span className='text-lg mb-2 font-bold text-[#00004E]'>درخواست ها</span>
                                     <div className="flex space-x-2 space-x-reverse bg-blue-700 px-5 py-4 items-center rounded-md justify-center relative overflow-hidden shadow-md">
                                         <span className="text-slate-100 text-sm font-extrabold">5</span>
                                         <VscRequestChanges size={50} className=' text-slate-100' />
@@ -26,7 +26,7 @@ const Account = () => {
                                     </div>
                                 </div>
                                 <div className='flex flex-col items-center px-4'>
-                                    <span className='text-lg mb-2 font-bold text-indigo-950'>تکمیل شده</span>
+                                    <span className='text-lg mb-2 font-bold text-[#00004E]'>تکمیل شده</span>
                                     <div className="flex space-x-2 space-x-reverse bg-blue-700 px-5 py-4 items-center rounded-md justify-center relative overflow-hidden shadow-md">
                                         <span className="text-slate-100 text-sm font-extrabold">2</span>
                                         <MdCloudUpload size={50} className='text-slate-100' />

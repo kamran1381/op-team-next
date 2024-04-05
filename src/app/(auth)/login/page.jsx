@@ -25,7 +25,7 @@ const Login = async () => {
                                 <div className='w-20 h-16 relative overflow-hidden rounded-xl shadow-md shadow-gray-500'>
                                     <Image src='/assets/images/logo.png' className='object-cover' loading='lazy' fill alt='لوگوی او پی تیم' />
                                 </div>
-                                <span className='w-full text-center font-extrabold text-xs lg:text-base text-indigo-950'>برای سفارش سایت و ثبت درخواست لطفا وارد حساب کاربری خود شوید.</span>
+                                <span className='w-full text-center font-extrabold text-xs lg:text-base text-[#00004E]'>برای سفارش سایت و ثبت درخواست لطفا وارد حساب کاربری خود شوید.</span>
                             </div>
                             <LoginForm />
                         </div>
