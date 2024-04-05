@@ -57,7 +57,7 @@ const Card = () => {
                                         item.pic ?
                                             <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/carts/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority/>
                                             :
-                                            <IoPersonSharp size={50} className="text-slate-400" />
+                                            <IoPersonSharp size={50} className="text-[#7986A4]" />
                                     }
                                 </div>
                             </div>

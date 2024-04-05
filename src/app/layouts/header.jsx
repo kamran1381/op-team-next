@@ -50,7 +50,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className='sm:w-80 w-52 flex flex-col space-y-2 items-center bg-[#85c8ff] z-0 px-3 pt-2 pb-1 text-indigo-950 text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform '>
+            <div className='sm:w-80 w-52 flex flex-col space-y-2 items-center bg-[#85c8ff] z-0 px-3 pt-2 pb-1 text-[#00004E] text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform '>
                 <Link href='tel:09925616704'  className='flex items-center justify-between w-full'>
                     <span>تماس با ما</span>
                     <span>09925616704</span>

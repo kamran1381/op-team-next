@@ -57,7 +57,7 @@ const Ordersform = () => {
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex flex-col space-y-4'>
-      <span className="text-slate-400 font-bold text-sm w-full text-center">
+      <span className="text-[#7986A4] font-bold text-sm w-full text-center">
         نمونه سایتی که مد نظرتون هست رو برای ما ارسال کنید
       </span>
       <label htmlFor="user-img-upload" className="bg-blue-700 font-bold sm:text-base text-sm py-3 px-4 w-40 text-center text-slate-100 rounded-2xl cursor-pointer">

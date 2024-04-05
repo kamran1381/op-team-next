@@ -24,7 +24,7 @@ const SignUp =async () => {
                                 <div className='w-20 h-16 relative overflow-hidden rounded-xl shadow-md shadow-gray-500'>
                                     <Image src='/assets/images/logo.png' className='object-cover' loading='lazy' fill alt='لوگوی او پی تیم' />
                                 </div>
-                                <span className='w-full text-center font-extrabold text-xs sm:text-base text-indigo-950'>فرم ثبت نام در سایت</span>
+                                <span className='w-full text-center font-extrabold text-xs sm:text-base text-[#00004E]'>فرم ثبت نام در سایت</span>
                             </div>
                             <SignupForm />
 
