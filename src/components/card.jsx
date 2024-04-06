@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from '@/lib/axios';
 import { FaLinkedinIn, FaStar } from "react-icons/fa";
-import { PiInstagramLogoFill } from "react-icons/pi";
 import Link from 'next/link'
 import { IoPersonSharp } from "react-icons/io5";
 import Image from 'next/image'
+import Instagram from './icons/instagram';
+import Cardstars from './icons/cardstars';
 
 
 const Card = () => {
@@ -53,9 +54,8 @@ const Card = () => {
                                 </div>
                                 <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center relative overflow-hidden'>
                                     {
-                                        
                                         item.pic ?
-                                            <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/carts/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority/>
+                                            <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/carts/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority />
                                             :
                                             <IoPersonSharp size={50} className="text-[#7986A4]" />
                                     }
@@ -64,20 +64,24 @@ const Card = () => {
                             <p className='font-bold text-white text-sm lg:text-base leading-8 text-justify z-10'>
                                 {item.description}
                             </p>
-                            <div className='w-8 h-fit bg-[#0000003c] rounded-full flex flex-col items-center py-3 space-y-5 z-10'>
+                            <div className='w-10 h-fit bg-[#0000003c] rounded-full flex flex-col items-center py-3 space-y-5 z-10'>
                                 <Link href={item.linkinsageram || '/'} className="flex items-center justify-center">
-                                    <PiInstagramLogoFill className='text-xl text-white hover:text-gray-400 transition-colors' />
+                                    <Instagram width={21} height={23} />
                                 </Link>
-                                <Link href={item.linkedin || '/'} className="flex items-center justify-center">
+                                <Link href={item.linkedin || '/'} className="flex items-center justify-center rotate-90">
                                     <FaLinkedinIn className='text-xl text-white hover:text-gray-400 transition-colors' />
                                 </Link>
 
                             </div>
                             <div className='w-full flex justify-between self-end items-center z-10'>
                                 <div className='flex items-center space-x-1 space-x-reverse text-yellow-500'>
-                                    <FaStar /> <span>4.8</span>
+                                    {/* <Cardstars /> */}
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
+                                    <FaStar />
                                 </div>
-                                <Link href={`CV/${item.id || index}`} className='w-1/3 py-1 bg-white rounded-2xl shadow shadow-gray-600 outline-none hover:bg-slate-200 transition-colors flex justify-center items-center'>رزومه</Link>
+                                <Link href={`CV/${item.id || index}`} className='w-1/2 py-1 bg-gradient-to-b from-[#40c9cd] to-[#1D1D99] to-80% rounded-xl shadow-[0px_0px_8px_0px] shadow-gray-800 outline-none text-slate-100 transition-colors flex justify-center items-center'>رزومه</Link>
                             </div>
                         </div>
                     ))) : (
