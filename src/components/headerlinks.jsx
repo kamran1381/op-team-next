@@ -1,9 +1,19 @@
 import React from 'react';
 import Link from 'next/link'
 
-const HeaderLinks = ({ data }) => {
+const HeaderLinks = () => {
     
-    const linkData = data;
+    const linkData = [
+        {
+            name: 'خانه',
+            href: '/',
+        },
+        {
+            name: 'سفارش سایت',
+            href: '/userpanel/orders',
+        },
+    ];
+
 
     return (
         <>

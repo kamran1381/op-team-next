@@ -3,9 +3,10 @@ import Image from 'next/image';
 import { CiClock2 } from "react-icons/ci";
 import { FaPhone } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTelegram } from "react-icons/fa6";
+import { BiLogoTelegram } from "react-icons/bi";
 import Instagram from '@/components/icons/instagram';
+import Link from 'next/link';
+
 
 
 const Footer = () => {
@@ -20,7 +21,7 @@ const Footer = () => {
                             <div className='flex justify-center items-center w-[100px] h-[80px] rounded-2xl overflow-hidden shadow-sm shadow-slate-800 relative'>
                                 <Image src='/assets/images/logo.png' loading='lazy' className='object-cover' fill alt='لوگوی او پی تیم' />
                             </div>
-                            <span className='text-slate-100 border-slate-100 lg:text-right text-center'>
+                            <span className='text-slate-100  lg:text-right text-center'>
                                 اوپی تیم انتخابی مطمعن برای کسانی که زیبایی و خلاقیت  را برمی‌گزینند.
                             </span>
                         </div>
@@ -30,7 +31,7 @@ const Footer = () => {
                                 <div className='bg-white p-1 rounded-xl shadow-md'>
                                     <FaPhone size={25} className='bg-slate-900 text-white p-1 rounded-full shadow-md aspect-square' />
                                 </div>
-                                <span className='text-slate-50 text-base'>09031864296</span>
+                                <Link href='tel:09925616704' className='text-slate-50 text-base'>09925616704</Link>
                             </div>
 
 
@@ -42,9 +43,9 @@ const Footer = () => {
                         </div>
 
                         <div className='flex items-center space-x-3 space-x-reverse'>
-                            <Instagram />
-                            <FaTelegram className='text-sky-500 bg-white rounded-full aspect-square shadow-md' size={27} />
-                            <FaLinkedinIn className='aspect-square' color='white' size={24} />
+                            <Link href={'https://instagram.com/instagram'}><Instagram /></Link>
+                            <Link href={'https://t.me/telegram'}><BiLogoTelegram className='bg-sky-500 aspect-square rounded-full shadow-md p-1' color='white' size={27} /></Link>
+                            <Link href={'https://t.me/telegram'}><FaLinkedinIn className='aspect-square' color='white' size={24} /></Link>
                         </div>
 
                     </div>
@@ -56,18 +57,18 @@ const Footer = () => {
                             <div className='w-7 h-1 rounded-full bg-white'></div>
                         </span>
                         <div className='flex flex-col lg:items-start items-center space-y-3'>
-                            <span className='text-slate-200 font-semibold'>سفارش سایت </span>
-                            <span className='text-slate-200 font-semibold'>درباره ما  </span>
-                            <span className='text-slate-200 font-semibold'>پروژه های ما  </span>
+                            <Link href={'/'} className='text-slate-100 font-semibold'>سفارش سایت </Link>
+                            <Link href={'/'} className='text-slate-100 font-semibold'>درباره ما  </Link>
+                            <Link href={'/'} className='text-slate-100 font-semibold'>پروژه های ما  </Link>
 
                         </div>
                     </div>
 
                     <div className='flex flex-col space-y-10'>
                         <div className='lg:w-2/3 w-full lg:text-right text-center flex flex-col lg:items-start items-center space-y-2'>
-                            <span className='text-white font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
+                            <span className='text-slate-100 font-bold text-base'>ساخت انواع سایت های فروشگاهی،شرکتی،خبری و مقاله ایی،گیمینگ،شخصی و ....</span>
 
-                            <span className='text-sm text-slate-200 '>
+                            <span className='text-sm text-slate-100 '>
                                 تیم خوش ذوق و خلاق در حوزه برنامه نویسی و طراحی سایت
                             </span>
                         </div>

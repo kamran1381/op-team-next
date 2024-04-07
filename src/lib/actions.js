@@ -1,11 +1,8 @@
 'use server'
 import { auth, signIn, signOut } from "./auth"
-import { redirect } from 'next/navigation'
 import axios from "./axios"
 
-export const navigate = async (url) => {
-    redirect(url)
-}
+
 
 export const isLogin = () => {
     const isAuth = auth()
@@ -24,30 +21,33 @@ export const handleGoogleLogin = async () => {
     await signIn("google", { redirectTo: "/", redirect: true })
 }
 
-export const loginWithCredentials = async (fromData) => {
+export const loginWithCredentials = async (formData) => {
 
-    return await axios.get('/sanctum/csrf-cookie').then(async () => {
-        return await axios.post('/login', {
-            email: fromData.email,
-            password: fromData.password
-        }).then(async (response) => {
-            console.log(response)
-            if (response.status === 200) {
-                await signIn('credentials', {
-                    user: JSON.stringify(response.data.user),
-                    redirect: true,
-                    redirectTo: '/'
-                })
-                return 'ورود موفق'
-            }
-        }).catch(error => {
-            console.log(error)
-            throw error
+    await axios.get('/sanctum/csrf-cookie');
+    try {
+        const response = await axios.post('/login', {
+            email: formData.email,
+            password: formData.password
         });
-    }).catch(error => {
-        throw error
-    })
+        if (response.status === 200) {
+            await signIn('credentials', {
+                user: JSON.stringify(response.data.user),
+                redirect: false,
+            });
+            return { message: 'ورود موفق', status: 200 };
+        }
 
+    } catch (error) {
+        if (error.response) {
+            if (error.response.status===422){
+                return { message: 'مقادیر ورودی غیر مجاز است', status: error.response.status };
+            }
+            if (error.response.status===401){
+                return { message: 'اطلاعات کاربر وارد شده نامعتبر است', status: error.response.status };
+            }
+        }
+        return { message: 'خطای نامشخص', status: 520 };
+    }
 
-}  
+}
 

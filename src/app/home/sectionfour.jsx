@@ -26,7 +26,7 @@ const Sectionfour = () => {
                     <p className='text-[#00004E] lg:text-[27px] text-xl font-extrabold leading-10 w-2/3'>برخی از پروژه های انجام شده توسط ما ....</p>
                     <span className='text-xs font-extrabold text-[#7986A4]'>برخی از سایت هایی که توسط ما به نحو احسن ساخته شده.</span>
                 </div>
-                <div className='lg:w-3/5 w-full h-[400px] relative bg-gradient-to-br from-[#18DBE7] to-[#185CE7] rounded-3xl overflow-hidden p-2'>
+                <div className='lg:w-3/5 w-full h-[400px] relative bg-gradient-to-br from-[#18DBE7] to-[#185CE7] rounded-3xl overflow-hidden p-2 z-0'>
                     <HomeSwiper data={swiperData} />
                 </div>
 

@@ -7,10 +7,12 @@ const Sectiontwo = () => {
         <div id='aboutUs' className='bg-slate-100 w-full flex justify-center relative'>
 
             <div className='w-full max-w-7xl flex flex-col lg:flex-row items-start lg:space-x-5 lg:space-x-reverse py-10 lg:space-y-0 space-y-5 xl:px-0 px-2 z-10'>
-                <div className='w-full lg:w-1/2 lg:h-[800px] flex justify-start items-start lg:mr-8 lg:mt-20 px-2 lg:px-0'>
-                    <div className='w-[500px] h-[280px] rounded-3xl bg-gradient-to-b from-[#18DBE7] to-[#185CE7] flex justify-center items-center relative'>
-                        <div className='w-[480px] h-[260px] rounded-2xl bg-slate-100'></div>
-                        <Image src='/assets/images/sectionTwoImg.png' className='object-cover rounded-3xl z-10 shadow-md shadow-slate-600 absolute top-7 left-7' loading='lazy' width={500} height={400} alt='لوگوی او پی تیم' />
+                <div className='w-full lg:w-1/2 lg:h-[800px] flex lg:justify-start justify-center items-start lg:mr-8 lg:mt-20 px-2 lg:px-0 relative'>
+                    <div className='lg:w-[400px] lg:h-[300px] md:w-[350px] md:h-[250px] w-[300px] h-[200px]  rounded-3xl bg-gradient-to-b from-[#18DBE7] to-[#185CE7] flex justify-center items-center absolute lg:right-8 lg:-top-8 -top-2'>
+                        <div className=' lg:w-[380px] lg:h-[280px] w-[280px] h-[180px] rounded-2xl bg-slate-100'></div>
+                    </div>
+                    <div className='lg:w-[400px] lg:h-[300px] md:w-[330px] md:h-[230px] w-[280px] h-[185px] bg-red-400 z-10 rounded-2xl flex justify-center items-center relative overflow-hidden'>
+                        <Image src='/assets/images/sectionTwoImg.png' className='aspect-square object-cover rounded-2xl' fill alt='لوگوی او پی تیم' />
                     </div>
                 </div>
                 <div className='w-full flex flex-col lg:w-1/2 h-full space-y-3 justify-center lg:items-start items-center px-5 lg:px-0 lg:text-right text-center'>

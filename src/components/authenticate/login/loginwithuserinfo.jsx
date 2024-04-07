@@ -2,13 +2,19 @@
 import { loginWithCredentials } from '@/lib/actions';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import {z} from 'zod'
-const schema = z.object({
-    email: z.string().email('آدرس ایمیل معتبر نیست'),
-    password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
-});
+import { z } from 'zod'
+
+
+
+
+
 const LoginWithUserInfo = () => {
-     
+
+    const schema = z.object({
+        email: z.string().email('آدرس ایمیل معتبر نیست'),
+        password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
+    });
+
     const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
@@ -26,39 +32,44 @@ const LoginWithUserInfo = () => {
         }));
     };
 
-    const loginFormSubmitHandler =  (event) => {
-     
+    const loginFormSubmitHandler = async (event) => {
+
         event.preventDefault();
-        setIsLoading(true)
+        setIsLoading(true);
+
 
         try {
-             
-            const login =  loginWithCredentials(formData);
-            console.log(login)
-            toast('ورود موفق', {
-                classNames: {
-                    toast: 'text-lime-500',
-                },
-            });
-        } catch (error) {
-
-            if (error.data) {
-                toast(error.data.message, {
+            schema.parse(formData);
+            const login = await loginWithCredentials(formData);
+            if (login.status === 200) {
+                toast(login.message, {
                     classNames: {
-                        toast: 'text-rose-500',
+                        toast: 'text-lime-500',
                     },
                 });
-            }else{
-                // toast('درخواست ناموفق , لطفا مجددا تلاش کنید', {
-                //     classNames: {
-                //         toast: 'text-rose-500',
-                //     },
-                // });
-                console.log(error)
+                window.location.reload()
+            } else {
+                toast(login.message, {
+                    classNames: {
+                        toast: 'text-rose-600',
+                    },
+                });
             }
-
-        }
-        finally {
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                toast(error.errors[0].message, {
+                    classNames: {
+                        toast: 'text-rose-600',
+                    },
+                });
+            } else {
+                toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
+                    classNames: {
+                        toast: 'text-rose-600',
+                    },
+                });
+            }
+        } finally {
             setIsLoading(false);
         }
 

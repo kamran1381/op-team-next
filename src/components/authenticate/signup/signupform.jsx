@@ -1,11 +1,23 @@
 'use client'
-import { navigate } from '@/lib/actions';
 import axios from '@/lib/axios';
+import { useRouter } from 'next/navigation';
 import React, { useState, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha"
 import { toast } from 'sonner';
+import { z } from 'zod'
 
 const SignupForm = () => {
+
+
+    const schema = z.object({
+        username: z.string().min(6, 'نام کاربری باید حداقل 6 حرف باشد'),
+        email: z.string().email('آدرس ایمیل معتبر نیست'),
+        password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
+        confirmPassword: z.string().min(6, 'تایید رمز عبور باید حداقل 6 کاراکتر داشته باشد')
+    });
+
+
+    const navigate = useRouter();
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -33,46 +45,64 @@ const SignupForm = () => {
         setIsLoading(true);
 
         try {
-            await axios.get('/sanctum/csrf-cookie', {
-            }).then(async () => {
-                const response = await axios.post('/signup', {
-                    name: formData.username,
-                    email: formData.email,
-                    password: formData.password,
-                    password_confirmation: formData.confirmPassword
-                })
-                if (!response.status === 200) {
-                    toast("درخواست شما با خطا مواجه شد لطفا مجدد تلاش کنید", {
+            schema.parse(formData);
+            await axios.get('/sanctum/csrf-cookie');
+            const response = await axios.post('/signup', {
+                name: formData.username,
+                email: formData.email,
+                password: formData.password,
+                password_confirmation: formData.confirmPassword
+            })
+            if (!response.status === 200) {
+                toast("درخواست شما با خطا مواجه شد لطفا مجدد تلاش کنید", {
+                    classNames: {
+                        toast: 'text-rose-500',
+                    },
+                });
+
+            }
+            if (response.status === 200) {
+                toast("شما با موفقیت ثبت نام شدید", {
+                    classNames: {
+                        toast: 'text-lime-500',
+                    },
+                });
+                navigate.push('/login')
+            }
+
+        } catch (error) {
+            console.log(error);
+            if (error instanceof z.ZodError) {
+                toast(error.errors[0].message, {
+                    classNames: {
+                        toast: 'text-rose-600',
+                    },
+                });
+            } else {
+                if (error.response) {
+                    if (error.response.status === 422) {
+                        toast("مقادیر وارد شده مجاز نیست", {
+                            classNames: {
+                                toast: 'text-rose-500',
+                            },
+                        });
+                    } else {
+                        toast(error.response.data.message, {
+                            classNames: {
+                                toast: 'text-rose-500',
+                            },
+                        });
+                    }
+
+                } else {
+                    toast("خطای نامشخص", {
                         classNames: {
                             toast: 'text-rose-500',
                         },
                     });
-                    
                 }
-                if (response.status === 200) {
-                    // Handle response if necessary
-                    toast("شما با موفقیت ثبت نام شدید", {
-                        classNames: {
-                            toast: 'text-lime-500',
-                        },
-                    });
-                    navigate('/login')
-                }
-            })
+            }
 
-        } catch (error) {
-        //    if (error && error.response.data.message === "The email has already been taken.") {
-        //         toast("آدرس ایمیل تکراری است", {
-        //             classNames: {
-        //                 toast: 'text-rose-500',
-        //             },
-        //         });
-        //    }else{
-        //     console.log(error)
-        //    }
-
-
-        console.log(error)
         }
         finally {
             setIsLoading(false);

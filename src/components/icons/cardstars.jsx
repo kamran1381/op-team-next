@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 const Cardstars = () => {
     return (
-        <div>
-            <Image src='/assets/images/star.png' width={15} height={15} loading='lazy'  alt='امتیاز' />
-        </div>
+        <>
+            <Image src='/assets/images/star.png' className='object-contain' width={500} height={500} loading='lazy' alt='امتیاز' />
+        </>
     );
 }
 

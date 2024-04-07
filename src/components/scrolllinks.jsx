@@ -1,8 +1,19 @@
 'use client'
 import React from 'react';
 
-const ScrollLinks = ({ data }) => {
-    const linkData = data;
+const ScrollLinks = () => {
+ 
+    const linkData = [
+        {
+            name: 'درباره ما',
+            scrollHash: 'aboutUs'
+        },
+        {
+            name: 'پروژه‌های ما',
+            scrollHash: 'ourProjects'
+        }
+    ];
+
 
     const scrolltoHash = (element_id) => {
         const element = document.getElementById(element_id);

@@ -29,6 +29,8 @@ const Card = () => {
     }, [])
 
 
+    const starCounts = 4;
+
     return (
         <>
 
@@ -55,7 +57,7 @@ const Card = () => {
                                 <div className='w-20 h-20 bg-white rounded-2xl flex justify-center items-center relative overflow-hidden'>
                                     {
                                         item.pic ?
-                                            <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/carts/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority />
+                                            <Image src={`${process.env.NEXT_PUBLIC_IMAGES_STORAGE_URL}/${item.pic}`} width={500} height={500} className='aspect-square object-cover' alt='تصویر' priority />
                                             :
                                             <IoPersonSharp size={50} className="text-[#7986A4]" />
                                     }
@@ -75,11 +77,11 @@ const Card = () => {
                             </div>
                             <div className='w-full flex justify-between self-end items-center z-10'>
                                 <div className='flex items-center space-x-1 space-x-reverse text-yellow-500'>
-                                    {/* <Cardstars /> */}
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
+                                    {[...Array(starCounts)].map((_, i) => (
+                                        <div key={i} className='h-5 w-5'>
+                                            <Cardstars />
+                                        </div>
+                                    ))}
                                 </div>
                                 <Link href={`CV/${item.id || index}`} className='w-1/2 py-1 bg-gradient-to-b from-[#40c9cd] to-[#1D1D99] to-80% rounded-xl shadow-[0px_0px_8px_0px] shadow-gray-800 outline-none text-slate-100 transition-colors flex justify-center items-center'>رزومه</Link>
                             </div>
