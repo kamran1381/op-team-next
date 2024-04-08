@@ -1,20 +1,14 @@
-'use client';
+'use client'
 import { loginWithCredentials } from '@/lib/actions';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import { z } from 'zod'
-
-
-
-
-
+import {z} from 'zod'
+const schema = z.object({
+    email: z.string().email('آدرس ایمیل معتبر نیست'),
+    password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
+});
 const LoginWithUserInfo = () => {
-
-    const schema = z.object({
-        email: z.string().email('آدرس ایمیل معتبر نیست'),
-        password: z.string().min(6, 'رمز عبور باید حداقل 6 کاراکتر داشته باشد'),
-    });
-
+     
     const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
@@ -39,7 +33,16 @@ const LoginWithUserInfo = () => {
 
 
         try {
-            schema.parse(formData);
+             if(!formData.email || !formData.password){
+                toast('فیلد ها  نباید خالی باشند ' ,{
+                    classNames :{
+                        toast : 'text-red-600'
+                    }
+                })
+             }else{
+              schema.parse(formData);
+
+             }
             const login = await loginWithCredentials(formData);
             if (login.status === 200) {
                 toast(login.message, {
@@ -63,11 +66,11 @@ const LoginWithUserInfo = () => {
                     },
                 });
             } else {
-                toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
-                    classNames: {
-                        toast: 'text-red-600',
-                    },
-                });
+                //   toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
+                //       classNames: {
+                //           toast: 'text-red-600',
+                //      },
+                //  });
             }
         } finally {
             setIsLoading(false);
