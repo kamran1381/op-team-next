@@ -52,6 +52,8 @@ const Ordersform = () => {
           },
         });
         if (response.status === 200) {
+          setImageFiles([]);
+          setDescription('');
           toast('ارسال توضیحات و عکس ها موفقیت آمیز بود', {
             classNames: {
               toast: 'text-green-600',
