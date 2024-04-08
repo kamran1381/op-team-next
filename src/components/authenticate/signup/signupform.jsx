@@ -56,7 +56,7 @@ const SignupForm = () => {
             if (!response.status === 200) {
                 toast("درخواست شما با خطا مواجه شد لطفا مجدد تلاش کنید", {
                     classNames: {
-                        toast: 'text-rose-500',
+                        toast: 'text-red-600',
                     },
                 });
 
@@ -64,7 +64,7 @@ const SignupForm = () => {
             if (response.status === 200) {
                 toast("شما با موفقیت ثبت نام شدید", {
                     classNames: {
-                        toast: 'text-lime-500',
+                        toast: 'text-green-600',
                     },
                 });
                 navigate.push('/login')
@@ -75,7 +75,7 @@ const SignupForm = () => {
             if (error instanceof z.ZodError) {
                 toast(error.errors[0].message, {
                     classNames: {
-                        toast: 'text-rose-600',
+                        toast: 'text-red-600',
                     },
                 });
             } else {
@@ -83,13 +83,13 @@ const SignupForm = () => {
                     if (error.response.status === 422) {
                         toast("مقادیر وارد شده مجاز نیست", {
                             classNames: {
-                                toast: 'text-rose-500',
+                                toast: 'text-red-600',
                             },
                         });
                     } else {
                         toast(error.response.data.message, {
                             classNames: {
-                                toast: 'text-rose-500',
+                                toast: 'text-red-600',
                             },
                         });
                     }
@@ -97,7 +97,7 @@ const SignupForm = () => {
                 } else {
                     toast("خطای نامشخص", {
                         classNames: {
-                            toast: 'text-rose-500',
+                            toast: 'text-red-600',
                         },
                     });
                 }

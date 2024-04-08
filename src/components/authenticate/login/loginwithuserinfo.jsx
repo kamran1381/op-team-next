@@ -44,14 +44,14 @@ const LoginWithUserInfo = () => {
             if (login.status === 200) {
                 toast(login.message, {
                     classNames: {
-                        toast: 'text-lime-500',
+                        toast: 'text-green-600',
                     },
                 });
                 window.location.reload()
             } else {
                 toast(login.message, {
                     classNames: {
-                        toast: 'text-rose-600',
+                        toast: 'text-red-600',
                     },
                 });
             }
@@ -59,13 +59,13 @@ const LoginWithUserInfo = () => {
             if (error instanceof z.ZodError) {
                 toast(error.errors[0].message, {
                     classNames: {
-                        toast: 'text-rose-600',
+                        toast: 'text-red-600',
                     },
                 });
             } else {
                 toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
                     classNames: {
-                        toast: 'text-rose-600',
+                        toast: 'text-red-600',
                     },
                 });
             }

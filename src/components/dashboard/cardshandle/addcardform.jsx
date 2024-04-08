@@ -42,7 +42,7 @@ const Addcardform = () => {
                 if (response.status === 200) {
                     toast(response.data.message, {
                         classNames: {
-                            toast: 'text-lime-500',
+                            toast: 'text-green-600',
                         },
                     });
                     router.push('/admin/cards/')
@@ -52,7 +52,7 @@ const Addcardform = () => {
         } catch (error) {
             toast(error, {
                 classNames: {
-                    toast: 'text-rose-500',
+                    toast: 'text-red-600',
                 },
             });
         }

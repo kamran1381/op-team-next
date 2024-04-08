@@ -41,7 +41,7 @@ const Ordersform = () => {
           // Handle success
           toast('ثبت موفق', {
             classNames: {
-              toast: 'text-lime-500',
+              toast: 'text-green-600',
             },
           });
           setUploadProgress(100); // Assuming the upload is complete here for demonstration
@@ -53,7 +53,7 @@ const Ordersform = () => {
     } catch (error) {
       console.error('Error occurred while sending data:', error);
     }
-  };
+  }; 
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex flex-col space-y-4'>

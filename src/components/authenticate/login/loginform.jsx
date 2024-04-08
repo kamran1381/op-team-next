@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
-import LoginWithGithub from './loginwithgithub';
-import LoginWithGoogle from './loginwithgoogle';
+// import LoginWithGithub from './loginwithgithub';
+// import LoginWithGoogle from './loginwithgoogle';
 import LoginWithUserInfo from './loginwithuserinfo';
 
 const LoginForm = () => {

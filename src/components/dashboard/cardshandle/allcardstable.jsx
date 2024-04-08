@@ -31,7 +31,7 @@ const Allcardstable = () => {
                 if (response.status === 200) {
                     toast(response.data.message, {
                         classNames: {
-                            toast: 'text-rose-500',
+                            toast: 'text-red-600',
                         },
                     });
 
@@ -42,7 +42,7 @@ const Allcardstable = () => {
         } catch (error) {
             toast(error, {
                 classNames: {
-                    toast: 'text-rose-500',
+                    toast: 'text-red-600',
                 },
             });
         }
