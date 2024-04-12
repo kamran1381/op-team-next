@@ -66,11 +66,11 @@ const LoginWithUserInfo = () => {
                     },
                 });
             } else {
-                //   toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
-                //       classNames: {
-                //           toast: 'text-red-600',
-                //      },
-                //  });
+                  toast('مشکلی پیش آمده است لطفا مجدد تلاش کنید', {
+                      classNames: {
+                          toast: 'text-red-600',
+                     },
+                 });
             }
         } finally {
             setIsLoading(false);
