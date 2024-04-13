@@ -1,7 +1,7 @@
 import React from 'react';
-import Sidebar from '../../../components/dashboard/sidebar';
-import Allorderstable from '@/components/dashboard/allorderstable';
-const AllOrders = () => {
+import Sidebar from '../../../../components/dashboard/sidebar';
+import Allorderstable from '@/components/dashboard/ordershandle/allorderstable';
+const AllOrders = ({params}) => {
     return (
         <div className='w-full flex flex-col justify-center items-center p-2 lg:p-5'>
             <div className='w-full max-w-7xl bg-[#DDE5FA] py-20 flex justify-center rounded-2xl mt-24'>
@@ -12,7 +12,7 @@ const AllOrders = () => {
                         <div className='py-2'>
                             <h2 className='text-md sm:text-lg font-bold'>سفارشات</h2>
                         </div>
-                        <Allorderstable />
+                        <Allorderstable params={params}/>
                     </div>
                 </div>
             </div>

@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 import { toast } from 'sonner';
 
 
-const Addcardform = () => {
+const Editcardform = ({ params }) => {
+
     const router = useRouter();
+
     const [formData, setFormData] = useState({
         name: '',
         title: '',
@@ -32,25 +34,25 @@ const Addcardform = () => {
         }
     }
 
-    const handelAddCard = (e) => {
+    const handelEditCard = (e) => {
         e.preventDefault();
         try {
             axios.get('/sanctum/csrf-cookie').then(async () => {
-                const response = await axios.post("api/carts/store", formData, {
+                const response = await axios.post(`api/carts/update/${params.cardId}`, formData, {
                     headers: { "Content-Type": 'multipart/form-data' }
                 })
                 if (response.status === 200) {
-                    toast(response.data.message, {
+                    toast("ویرایش با موفقیت انجام شد", {
                         classNames: {
                             toast: 'text-green-600',
                         },
                     });
-                    router.push('/admin/cards/')
+                    router.push('/admin/cards/');
                 }
             })
 
         } catch (error) {
-            toast(error, {
+            toast("مشکلی پیش امده", {
                 classNames: {
                     toast: 'text-red-600',
                 },
@@ -59,8 +61,8 @@ const Addcardform = () => {
 
     }
     return (
-        <form onSubmit={handelAddCard} className='bg-slate-100 p-5 flex flex-col space-y-5 w-full justify-center items-center rounded-xl'>
-            <span className='w-full text-center font-bold'>فرم ثبت کارت جدید</span>
+        <form onSubmit={handelEditCard} className='bg-slate-100 p-5 flex flex-col space-y-5 w-full justify-center items-center rounded-xl'>
+            <span className='w-full text-center font-bold'>فرم ویرایش</span>
             <input onChange={handleChange} className='py-3 px-2 w-3/6 rounded-md shadow outline-none text-gray-800' placeholder='نام را وارد کنید' type="text" name='name' />
             <input onChange={handleChange} className='py-3 px-2 w-3/6 rounded-md shadow outline-none text-gray-800' placeholder='عنوان را وارد کنید' type="text" name='title' />
             <input onChange={handleChange} className='py-3 px-2 w-3/6 rounded-md shadow outline-none text-gray-800' placeholder='توضیحات را وارد کنید' type="text" name='description' />
@@ -70,9 +72,9 @@ const Addcardform = () => {
                 آپلود عکس
                 <input type="file" id="card-img-upload" className="hidden" onChange={handleImageUpload} accept="image/*" />
             </label>
-            <button type='submit' className='w-3/6 px-2 py-3 bg-green-500 text-white text-lg font-bold rounded-md'>ثبت اطلاعات</button>
+            <button type='submit' className='w-3/6 px-2 py-3 bg-green-500 text-white text-lg font-bold rounded-md'>ویرایش</button>
         </form>
     );
 }
 
-export default Addcardform;
+export default Editcardform;

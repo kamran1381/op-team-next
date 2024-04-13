@@ -1,6 +1,7 @@
 'use client'
 import axios from '@/lib/axios';
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link'
 import { toast } from 'sonner';
 
 const Allcardstable = () => {
@@ -72,9 +73,9 @@ const Allcardstable = () => {
                             <td className="px-6 py-4 text-center text-sm whitespace-nowrap">{item.description}</td>
                             <td className="px-6 py-4 text-center text-sm whitespace-nowrap">{item.title}</td>
                             <td className="px-6 py-4 text-center text-sm whitespace-nowrap">
-                                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
-                                    ادیت
-                                </button>
+                                <Link href={`cards/editcard/${item.id}`} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                    <span>ویرایش</span>
+                                </Link>
                             </td>
                             <td className="px-6 py-4 text-center text-sm whitespace-nowrap">
                                 <button onClick={() =>
@@ -82,7 +83,7 @@ const Allcardstable = () => {
                                         <div className='bg-slate-100 shadow px-5 py-4 text-[#00004E] rounded-md flex items-center space-x-4 space-x-reverse'>
                                             <span className='font-bold'>آیا اطمینان دارید ؟ </span>
                                             <button className='px-5 py-2 text-xs bg-rose-500 text-slate-100 rounded-md' onClick={() => toast.dismiss(t)}>خیر</button>
-                                            <button className='px-5 py-2 text-xs bg-lime-500 text-slate-100 rounded-md' onClick={() => {handleDeleteCard(item);toast.dismiss(t)}}>بله</button>
+                                            <button className='px-5 py-2 text-xs bg-lime-500 text-slate-100 rounded-md' onClick={() => { handleDeleteCard(item); toast.dismiss(t) }}>بله</button>
                                         </div>
                                     ))}
                                     className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
