@@ -7,11 +7,12 @@ import { IoPersonSharp } from "react-icons/io5";
 import Image from 'next/image'
 import Instagram from './icons/instagram';
 import Cardstars from './icons/cardstars';
+import { toast } from 'sonner';
 
 
 const Card = () => {
 
-    const [cartsData, setCartsData] = useState([])
+    const [cartsData, setCartsData] = useState()
 
     useEffect(() => {
         try {
@@ -23,7 +24,11 @@ const Card = () => {
                 }
             })
         } catch (error) {
-            setCartsData([])
+            toast(error, {
+                classNames: {
+                    toast: 'text-red-600',
+                },
+            });
         }
 
     }, [])
@@ -87,7 +92,11 @@ const Card = () => {
                             </div>
                         </div>
                     ))) : (
-                    <p>API ERROR</p>
+                    <div className='w-full flex justify-center items-center'>
+                        <span className='font-bold text-xl text-gray-500'>
+                            در حال حاضر اطلاعاتی برای نمایش وجود ندارد
+                        </span>
+                    </div>
                 )
             }
         </>
