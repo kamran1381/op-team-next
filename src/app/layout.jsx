@@ -8,6 +8,7 @@ import Footer from './layouts/footer';
 import { Toaster } from 'sonner'
 import { SessionProvider } from 'next-auth/react';
 
+
 const SansWeb = localFont({ src: [{ path: "./assets/fonts/SansWeb.ttf" }, { path: "./assets/fonts/SansNum.ttf" }] });
 export const metadata = {
   title: {

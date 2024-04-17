@@ -3,9 +3,12 @@ import React from 'react';
 import Image from 'next/image';
 import { IoPersonSharp } from 'react-icons/io5';
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react';
 
 
 const Panelheader = () => {
+    const { data: session, status } = useSession();
+    console.log(session);
 
     const path = usePathname();
 

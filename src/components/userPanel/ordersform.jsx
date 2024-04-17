@@ -2,8 +2,13 @@
 import axios from '@/lib/axios';
 import React, { useState } from 'react';
 import { toast } from 'sonner';
+import { useSession } from 'next-auth/react';
+
 
 const Ordersform = () => {
+
+  const { data: session, status } = useSession();
+
   const [imageFiles, setImageFiles] = useState([]); // Storing multiple files
   const [description, setDescription] = useState('');
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -31,11 +36,11 @@ const Ordersform = () => {
     event.preventDefault();
 
     if (imageFiles.length === 0 || !description.trim()) {
-     toast('فیلد ها نباید خالی باشند' ,{
-      classNames :{
-        toast : 'text-red-600'
-    }
-     })
+      toast('فیلد ها نباید خالی باشند', {
+        classNames: {
+          toast: 'text-red-600'
+        }
+      })
       return;
     }
 
@@ -45,7 +50,7 @@ const Ordersform = () => {
       formData.append('description', description);
 
       await axios.get('/sanctum/csrf-cookie').then(async () => {
-        const response = await axios.post('/api/orders/1/store', formData, {
+        const response = await axios.post(`/api/orders/${session.user.id}/store`, formData, {
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             setUploadProgress(percentCompleted);
@@ -85,7 +90,7 @@ const Ordersform = () => {
             {/* <strong class="bg-white  text-black w-3 h-6 absolute top-0 right-0 text-xl align-center cursor-pointer alert-del "
             onClick={() => handleDeleteImage(index)} />&times;<strong
             /> */}
-            <button className='bg-white  text-black w-3 h-6 absolute top-0 right-0 text-xl align-center cursor-pointer alert-del'  onClick={() => handleDeleteImage(index)}>&times;</button>
+            <button className='bg-white  text-black w-3 h-6 absolute top-0 right-0 text-xl align-center cursor-pointer alert-del' onClick={() => handleDeleteImage(index)}>&times;</button>
           </div>
         ))}
       </div>

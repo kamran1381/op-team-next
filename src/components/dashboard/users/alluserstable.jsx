@@ -12,10 +12,10 @@ const Alluserstable = () => {
     useEffect(() => {
         try {
             axios.get('/sanctum/csrf-cookie').then(async () => {
-                const response = await axios.get('user/allusers/show');
+                const response = await axios.get('api/show-users');
                 if (response.status === 200) {
                     // Handle response if necessary
-                    setUsersData(response.data)
+                    setUsersData(response.data.data)
                 }
             })
 
@@ -38,6 +38,7 @@ const Alluserstable = () => {
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">نام کاربری</th>
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ایمیل</th>
+                        <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">نقش</th>
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">سفارشات</th>
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ادیت</th>
                         <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">حذف</th>
@@ -49,6 +50,7 @@ const Alluserstable = () => {
                             <td className="px-6 py-4 whitespace-nowrap">{item.id}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">{item.role}</td>
                             <td className="px-6 py-4 whitespace-nowrap"><Link href={`allorders/${item.id}`} className="bg-green-600 py-2 px-4 rounded-md text-sm text-white">نمایش همه</Link></td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">

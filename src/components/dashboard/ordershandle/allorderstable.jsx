@@ -5,14 +5,14 @@ import { toast } from 'sonner';
 import Link from 'next/link'
 
 
-const Allorderstable = ({params}) => {
+const Allorderstable = ({ params }) => {
 
 
     const [ordersData, setOrdersData] = useState([])
     useEffect(() => {
         try {
             axios.get('/sanctum/csrf-cookie').then(async () => {
-                const response = await axios.post(`api/orders/${params.userId}/showall`);
+                const response = await axios.get(`api/orders/${params.userId}/showall`);
                 if (response.status === 200) {
                     // Handle response if necessary
                     setOrdersData(response.data.orders)
@@ -47,7 +47,7 @@ const Allorderstable = ({params}) => {
                         <tr key={index} className='text-center'>
                             <td className="px-6 py-4 whitespace-nowrap">{item.id}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{item.description}</td>
-                            <td className="px-6 py-4 whitespace-nowrap"><Link href={`order/${item.id}`} className="bg-green-600 py-2 px-4 rounded-md text-sm text-white">مشاهده</Link></td>
+                            <td className="px-6 py-4 whitespace-nowrap"><Link href={`order/${params.userId}/${item.id}`} className="bg-green-600 py-2 px-4 rounded-md text-sm text-white">مشاهده</Link></td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
                                     ادیت
