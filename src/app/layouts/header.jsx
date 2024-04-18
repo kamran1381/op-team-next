@@ -22,8 +22,9 @@ const Header = () => {
                 </Link>
                 <div className='lg:w-11/12 w-full bg-[#FFFFFF] h-full rounded-xl flex items-center justify-between z-10'>
                     <div className=' w-full flex items-center lg:space-x-4 lg:space-x-reverse lg:pr-10'>
+                    {url=='/' ? <ScrollLinks /> : null}
+
                         <HeaderLinks />
-                        {url=='/' ? <ScrollLinks /> : null}
                     </div>
                     <div className='w-fit h-full flex lg:justify-center justify-end items-center sm:pl-8 pl-2'>
                         <LoginHeaderButton />
