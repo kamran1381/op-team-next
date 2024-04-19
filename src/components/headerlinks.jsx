@@ -4,14 +4,21 @@ import Link from 'next/link'
 const HeaderLinks = () => {
     
     const linkData = [
+      
         {
             name: 'خانه',
             href: '/',
         },
+      
         {
             name: 'سفارش سایت',
             href: '/userpanel/orders',
         },
+     
+        {
+            name : 'وبلاگ' ,
+            href : '/weblog'
+           },
     ];
 
 

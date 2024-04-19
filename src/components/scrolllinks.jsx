@@ -11,7 +11,8 @@ const ScrollLinks = () => {
         {
             name: 'پروژه‌های ما',
             scrollHash: 'ourProjects'
-        }
+        } ,
+      
     ];
 
 
