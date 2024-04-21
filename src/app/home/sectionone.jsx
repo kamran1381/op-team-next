@@ -30,6 +30,8 @@ const Sectionone = () => {
                     <AnimateCircles color={"#ECECFF"} />
                 </div>
             </div>
+            
+
         </>
     );
 }
