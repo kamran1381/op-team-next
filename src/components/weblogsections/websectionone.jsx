@@ -18,11 +18,12 @@ function Websectionone() {
                 </div>
 
                 <div className="flex justify-center  flex-nowrap  ">
-                    <div className="w-full lg:w-3/4 flex flex-col lg:flex-row justify-between">
-                        <div className="w-full lg:w-1/2 mb-4 lg:mb-0 h-[300px] relative ">
-                            <Image
+                    <div className="w-full lg:w-3/4 flex flex-col lg:flex-row justify-between gap-3">
+                        <div className=" lg:w-1/2 mb-4 lg:mb-0  relative  ">
+                        <div className='lg:w-[100%] lg:h-[300px]  w-[100%] h-[300px]  '>
+                        <Image
                                 src='/assets\images\weblog header\pankaj-patel-_SgRNwAVNKw-unsplash.jpg'
-                                className='object-cover rounded-md pl-2'
+                                className='object-cover rounded-lg'
                                 layout='fill'
                                 alt='تصویر'
                             />
@@ -40,10 +41,13 @@ function Websectionone() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2 h-[300px] relative">
-                            <Image
+                        
+                        </div>
+                        <div className=" lg:w-1/2 relative">
+                         <div className='lg:w-[100%] lg:h-[300px]  w-[100%] h-[300px] relative'>
+                         <Image
                                 src='/assets/images/weblog header/markus-spiske-cvBBO4PzWPg-unsplash.jpg'
-                                className='object-cover rounded-md pr-2'
+                                className='object-cover rounded-lg '
                                 layout='fill'
                                 alt='تصویر'
                             />
@@ -63,6 +67,8 @@ function Websectionone() {
 
 
                             </div>
+                         </div>
+                            
                         </div>
                     </div>
                 </div>
