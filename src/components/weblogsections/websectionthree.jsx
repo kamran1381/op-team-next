@@ -69,7 +69,7 @@ function Websectionthree() {
                                     alt='Post Image'
                                 />
                             </div>
-                             <span className='pr-3'>fearles x</span>
+                            <span className='pr-3'>fearles x</span>
                         </div>
                         <div className='lg:w-4/5 relative pr-3 flex items-center'>
 
@@ -84,8 +84,70 @@ function Websectionthree() {
 
 
                     </div>
+
                 </div>
             </div>
+
+
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-1/2">
+                    <div class="py-2">
+                        <div class="flex flex-col items-center space-y-2">
+                            {profilepics.map((item) => (
+                                <div key={item.id} className="flex items-center w-full lg:w-2/4 h-28 bg-slate-50 rounded-md relative overflow-hidden">
+                                    <div className="w-14 h-14 mr-2 relative">
+                                        <Image
+                                            src={item.imageUrl}
+                                            className="object-cover rounded-full"
+                                            layout="fill"
+                                            alt="Profile Image"
+                                        />
+                                    </div>
+                                    <div className="px-2 flex-grow">
+                                        <span className="text-sm">{item.title}</span>
+                                    </div>
+                                    <div className="absolute bottom-0 left-1 flex items-center space-x-2">
+                                        <span className="text-xs text-slate-500 px-2">بیشتر...</span>
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                            <span className="text-xs">پاسخ</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2">
+    <div class="py-2">
+        <div class="flex flex-col items-start space-y-2">
+            <div class="flex items-center w-full lg:w-2/4 h-28 bg-slate-50 rounded-md relative overflow-hidden">
+                <div class="w-14 h-14 mr-2 relative">
+                    <img
+                        src="/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg"
+                        class="object-cover rounded-full"
+                        alt="Profile Image"
+                    />
+                </div>
+                <div class="px-2">
+                    <span class="text-sm">something</span>
+                </div>
+            </div>
+            <div class="flex items-center w-full lg:w-2/4 bg-slate-50 rounded-md mt-2 p-2">
+                <input
+                    type="text"
+                    id="inputField"
+                    name="inputField"
+                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                    placeholder="سوال یا نظری وارد کنید..."
+                />
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+
         </div>
     );
 }
