@@ -25,17 +25,20 @@ function Websectionthree() {
     ];
 
     return (
-        <div className='container'>
-            <div className="border-t-2 border-slate-600 mx-28"></div>
+        <div className='container '>
+            <div className="border-t-2 border-x-slate-700 mx-20 mt-6"></div>
 
-            <div className="lg:w-3/4  mx-auto p-6 bg-white rounded-md shadow-md mt-5">
+            <div className="lg:w-[85%] w-full mx-auto p-6 bg-white rounded-md shadow-md mt-10">
                 <div>
-                    <span className='text-right'>برخی از صحبت های شما</span>
+                       <div className='flex'>
+                         <span className='text-black opacity-25'>برخی از صحبت های شما</span>
+                       </div>
 
                     <div className='py-4 flex justify-between gap-2'>
                         {profilepics.map((item) => (
-                            <div key={item.id} className=" flex items-center w-1/4 h-20 bg-gray-200 rounded-md relative   overflow-hidden ">
-                                <div className=" w-14 h-14 mr-2 relative  ">
+                            <div key={item.id} className="flex items-center w-1/4 h-20 border border-indigo-600 rounded-md relative   overflow-hidden ">
+                             <div className=''>
+                             <div className=" w-14 h-14 mr-2 relative  ">
                                     <Image
                                         src={item.imageUrl}
                                         className='object-cover rounded-full'
@@ -51,6 +54,8 @@ function Websectionthree() {
                                     <span className='text-xs text-slate-500'>بیشتر...</span>
 
                                 </div>
+                             </div>
+                             
                             </div>
                         ))}
                     </div>
@@ -87,6 +92,11 @@ function Websectionthree() {
 
                 </div>
             </div>
+
+
+
+
+
 
 
             <div class="flex flex-col lg:flex-row">

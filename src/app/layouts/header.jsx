@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <div className='w-full flex-col flex justify-center items-center py-5 lg:px-5 px-2 fixed z-50'>
            
-            {/* <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md '>
+            <div className='w-full max-w-7xl bg-[#23243d] h-[70px] flex items-center rounded-r-xl rounded-l-2xl shadow-md '>
                 <Link href='/' className='lg:w-1/12 overflow-hidden h-full bg-[#23243d] rounded-r-xl hidden lg:flex justify-center items-center'>
                     <Image src='/assets/images/logo.png' loading='lazy' width={100} height={100} alt='لوگوی او پی تیم' />
                 </Link>
@@ -30,14 +30,14 @@ const Header = () => {
                         <LoginHeaderButton />
                     </div>
                 </div>
-            </div> */}
-            {/* <div className='sm:w-80 w-52 flex flex-col space-y-2 items-center bg-[#85c8ff] z-0 px-3 pt-2 pb-1 text-[#00004E] text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform '>
+            </div>
+            <div className='sm:w-80 w-52 flex flex-col space-y-2 items-center bg-[#85c8ff] z-0 px-3 pt-2 pb-1 text-[#00004E] text-xs font-extrabold rounded-b-3xl -translate-y-7 hover:translate-y-0 transition-transform '>
                 <Link href='tel:09925616704'  className='flex items-center justify-between w-full'>
                     <span>تماس با ما</span>
                     <span>09925616704</span>
                 </Link>
                 <FaChevronDown size={15}/>
-            </div> */}
+            </div>
         </div>
     );
 }
