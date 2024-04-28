@@ -47,7 +47,8 @@ function Websectionthree() {
                                     />
                                 </div>
                                 <div className='px-2'>
-                                    <span className='text-sm'>{item.title}</span>
+                                    <span className='text-xs'>{item.title}</span>
+
 
                                 </div>
                                 <div className='absolute bottom-0 left-1'>
