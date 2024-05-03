@@ -1,22 +1,22 @@
 import React from 'react';
-
+import Link from 'next/link';
 function Weblogheader() {
     const webheader = [
         {
             name: ' بک اند',
-            link: '#'
+            href: ''
         },
         {
             name: 'فرانت اند',
-            link: '#'
+            href: '/weblog/category'
         },
         {
             name: 'طراحی Uiux',
-            link: '#'
+            href: '/weblog/category'
         },
         {
             name: ' پرسش و پاسخ',
-            link: '#'
+            href: '/weblog/category'
         },
     ];
 
@@ -28,10 +28,10 @@ function Weblogheader() {
                  </button>
             </div>
             <div className='flex gap-2'>
-                {webheader.map((links, index) => (
-                    <button key={index} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg shadow-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <span className='text-base/4 text-white font-semibold'>{links.name}</span>
-                    </button>
+                {webheader.map((items, index) => (
+                    <Link href={items.href} key={index} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg shadow-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <span className='text-base/4 text-white font-semibold'>{items.name}</span>
+                    </Link>
                 ))}
             </div>
         </div>
