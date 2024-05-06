@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Inputsendicon from '../icons/inputsendicon';
+import Dislikebutton from '../icons/dislikebutton';
+import Likebutton from '../icons/likebutton';
 function Websectionthree() {
     const profilepics = [
         {
@@ -29,17 +31,17 @@ function Websectionthree() {
         <div className='container '>
             <div className="border-t-2 border-x-slate-700 mx-20 mt-6"></div>
 
-            <div className="lg:w-[85%] w-full mx-auto p-6 bg-white rounded-md shadow-md mt-10">
+            <div className="lg:w-[85%] w-full mx-auto p-6 bg-white rounded-2xl  shadow-lg mt-10">
                 <div>
                     <div className='flex'>
                         <span className='text-black opacity-25'>برخی از صحبت های شما</span>
                     </div>
 
-                    <div className='py-4 flex justify-between gap-2'>
+                    <div className='py-4 flex justify-between gap-0'>
                         {profilepics.map((item) => (
-                            <div key={item.id} className="flex lg:flex-row items-center w-1/4 h-20 border border-[#5f6b69]/50 rounded-l-2xl  relative   overflow-hidden ">
+                            <div key={item.id} className="flex lg:flex-row items-center w-[21%] h-20 border border-[#5f6b69]/10 rounded-l-2xl  relative shadow-lg   overflow-hidden ">
                                 <div className=' border-r-2  border-r-[#0045CE] h-full'></div>
-                                <div className=" w-14 h-14 mr-2 relative mb-3  ">
+                                <div className=" w-11 h-11 mr-2 relative mb-3  ">
                                     <Image
                                         src={item.imageUrl}
                                         className='object-cover rounded-full '
@@ -66,10 +68,10 @@ function Websectionthree() {
                     </div>
                     <div className="flex  py-4">
                         <div className='lg:w-1/5 h-20 flex items-center border border-[#5f6b69]/50  bg-white rounded-l-2xl '>
-                        <div className=' border-r-2  border-r-[#0045CE] h-full'></div>
+                            <div className=' border-r-2  border-r-[#0045CE] h-full'></div>
 
                             <div className=" w-14 h-14 mr-2   relative  ">
-                            
+
                                 <Image
                                     src={profilepics[0].imageUrl}
                                     className='object-cover rounded-full'
@@ -88,11 +90,11 @@ function Websectionthree() {
                                 className="w-full px-4 py-4 border rounded-md focus:outline-none focus:border-blue-400 border-r-2  border-r-[#0045CE] "
                                 placeholder="سوال یا نظری وارد کنید..."
                             />
-                             
-                             <div className='absolute top-6 left-3'>
-                             <Inputsendicon />
 
-                             </div>
+                            <div className='absolute top-6 left-3'>
+                                <Inputsendicon />
+
+                            </div>
 
 
                         </div>
@@ -141,24 +143,45 @@ function Websectionthree() {
                 <div class="w-full lg:w-1/2">
                     <div class="py-2">
                         <div class="flex flex-col items-start space-y-2">
-                            <div class="flex items-center w-full lg:w-2/4 h-28 bg-slate-50 rounded-md relative overflow-hidden">
-                                <div class="w-14 h-14 mr-2 relative">
-                                    <img
-                                        src="/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg"
-                                        class="object-cover "
-                                        alt="Profile Image"
-                                    />
+                            <div class="flex items-start pt-3 lg:w-3/4 h-44 bg-slate-50 rounded-md relative overflow-hidden">
+                                <div className='lg:w-2/3 '>
+                                    <div style={{ position: 'relative', width: '3.5rem', height: '3.5rem' }}>
+                                        <Image
+                                            src='/assets/images/weblog header/joshua-aragon-EaB4Ml7C7fE-unsplash.jpg'
+                                            className='object-cover rounded-full '
+                                            layout='fill'
+                                            alt='Post Image'
+                                        />
+                                    </div>
+                                    <div class="flex flex-col">
+                                        {profilepics.map(item => (
+                                            <span className='text-sm'>{item.title}</span>
+                                        ))}
+
+                                    </div>
                                 </div>
-                                <div class="px-2">
-                                    <span class="text-sm">{profilepics[0].title}</span>
+                                <div className='lg:w-1/3 relative flex justify-end  items-center'>
+                                    <div className='flex gap-1 px-2'>
+                                        <Likebutton />
+                                        <Dislikebutton />
+                                    </div>
+
+                                    <div className='absolute top-5 left-4'>
+                                        <span className='text-xs text-[#C00000]'>20</span>
+                                    </div>
+                                    <div className='absolute top-5 left-9'>
+                                        <span className='text-sm'>20</span>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class=" items-center w-full lg:w-2/4 bg-slate-50 rounded-md mt-2 p-2 hidden">
+
+                            <div class="relative items-center  lg:w-3/4  bg-slate-50 rounded-md mt-2 p-2 ">
                                 <input
                                     type="text"
                                     id="inputField"
                                     name="inputField"
-                                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                                    className="  w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-400"
                                     placeholder="سوال یا نظری وارد کنید..."
                                 />
                             </div>
