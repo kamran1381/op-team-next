@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 const CategorySlider = () => {
@@ -11,9 +11,9 @@ const CategorySlider = () => {
         '/assets/images/weblog header/markus-spiske-cvBBO4PzWPg-unsplash.jpg'
     ];
 
-    const handleClick = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+    const handleClick = useCallback(() => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, [images]);
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -22,22 +22,21 @@ const CategorySlider = () => {
         return () => {
             slider.removeEventListener('click', handleClick);
         };
-    }, []);
+    }, [handleClick]);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
         }, 10000);
 
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [images]);
 
     return (
         <div className='relative h-[500px]'>
             <div
-
                 ref={sliderRef}
                 style={{ cursor: 'pointer' }}
             >
@@ -49,23 +48,22 @@ const CategorySlider = () => {
                 />
             </div>
 
-            <div className='absolute  bottom-5 right-10 flex flex-col items-start space-x-4 '>
+            <div className='absolute bottom-5 right-10 flex flex-col items-start space-x-4'>
                 <div className='lg:w-[500px] lg:h-[300px] relative bg-white rounded-2xl'>
-                   <div className='px-3 py-6'>
-                   <button class="bg-[#0045CE] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                     <span className='text-sm'> طراحی UiUx</span>
-                    </button>
-                   </div>
+                    <div className='px-3 py-6'>
+                        <button className="bg-[#0045CE] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <span className='text-sm'>طراحی UiUx</span>
+                        </button>
+                    </div>
                    
-                   <div className='text-center font-bold'>
-                    <span className='text-2xl text-[#072B82] '>مشکل در  بخش زبان فارسی فیگما</span>
-                    <p className='pt-3 text-xs text-[#A6A6A6]'>مشکل در  بخش زبان فارسی فیگما زمان مطالعه: 10 دقیقه</p>
-                     <div className='mt-10 flex flex-col text-sm'>
-                        <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
-                        <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
-
-                     </div>
-                   </div>
+                    <div className='text-center font-bold'>
+                        <span className='text-2xl text-[#072B82]'>مشکل در بخش زبان فارسی فیگما</span>
+                        <p className='pt-3 text-xs text-[#A6A6A6]'>مشکل در بخش زبان فارسی فیگما زمان مطالعه: 10 دقیقه</p>
+                        <div className='mt-10 flex flex-col text-sm'>
+                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
+                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
