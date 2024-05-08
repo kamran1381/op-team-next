@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import AnimateCircles from '../animatecircles';
 import Advetisment from '../advertisements/advetisment';
+import Advertisementone from '../advertisements/advertismentone';
+import Advertisementtwo from '../advertisements/advertismenttwo';
 const CategorySectionone = () => {
     // Sample data for posts
     const posts = [
@@ -43,7 +45,7 @@ const CategorySectionone = () => {
                 <div className="border-t-2 border-x-slate-700 mx-16"></div>
                 <div className="flex flex-col lg:flex-row w-full gap-4 mt-10">
                     <div className="lg:w-2/3  flex  flex-col   relative lg:pr-16 ">
-                        <div className='lg:w-[85%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative'>
+                        <div className='lg:w-[70%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative'>
                             <Image
                                 src='/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg'
                                 className='object-cover rounded-xl'
@@ -52,7 +54,7 @@ const CategorySectionone = () => {
                             />
                         </div>
                         <div className='pr-5 py-6'>
-                            <div className='w-[70%] leading-7'> {/* Adjust the width as needed */}
+                            <div className='w-[50%] leading-7'> 
                                 <span className="mt-4 py-3 text-xl font-bold text-[#00004E]">تیم برنامه نویسی اوپی،تیم<br /> خود کفا در حوزه ساخت و<br /> طراحی وب</span>
                                 <p className='text-[#7986A4] pt-4'>
                               
@@ -61,7 +63,7 @@ const CategorySectionone = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className='lg:w-[85%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative'>
+                        <div className='lg:w-[70%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative mt-16'>
                             <Image
                                 src='/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg'
                                 className='object-cover rounded-xl'
@@ -70,7 +72,18 @@ const CategorySectionone = () => {
                             />
                         </div>
                         <div className='pr-5 py-6'>
-                            <div className='w-[70%] leading-7'> {/* Adjust the width as needed */}
+                            <div className='w-[50%] leading-7'> {/* Adjust the width as needed */}
+                                <span className="mt-4 py-3 text-xl font-bold text-[#00004E]">تیم برنامه نویسی اوپی،تیم<br /> خود کفا در حوزه ساخت و<br /> طراحی وب</span>
+                                <p className='text-[#7986A4] pt-4'>
+                              
+                                تیم اوپی تاسیس شده در 1402/10/1 ، این تیم تشکیل شده از چند فریلنسر  که تجربه کافی در حوزه برنامه نویسی  را دارا هستند. یک تیم خوش ذوق و خلاق در زمینه ساخت سایت های شخصی ،شرکتی، فروشگاهی و ... که شعارشان نوآوری و ایده های ناب هست و از مهم ترین حسن های این تیم نظم و مسعولیت پذیری است. حسن انتخاب شما سبب رضایت شما خواهد شد.
+                               . <br/>تیم اوپی تاسیس شده در 1402/10/1 ، این تیم تشکیل شده از چند فریلنسر  که تجربه کافی در حوزه برنامه نویسی  را دارا هستند. یک تیم خوش ذوق و خلاق در زمینه ساخت سایت های شخصی ،شرکتی، فروشگاهی و ... که شعارشان نوآوری و ایده های ناب هست و از مهم ترین حسن های این تیم نظم و مسعولیت پذیری است. حسن انتخاب شما سبب رضایت شما خواهد شد.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='pr-5 py-6'>
+                            <div className='w-[50%] leading-7'> {/* Adjust the width as needed */}
                                 <span className="mt-4 py-3 text-xl font-bold text-[#00004E]">تیم برنامه نویسی اوپی،تیم<br /> خود کفا در حوزه ساخت و<br /> طراحی وب</span>
                                 <p className='text-[#7986A4] pt-4'>
                               
@@ -110,6 +123,8 @@ const CategorySectionone = () => {
                                         <h3 className="font-bold text-[#00004E] text-sm">{post.title}</h3>
                                         <p className='text-xs text-[#585454] opacity-50 pt-2'>{post.Date}</p>
                                     </div>
+
+
                                 </div>
                             ))}
                         </div>
@@ -138,7 +153,26 @@ const CategorySectionone = () => {
                         <Advetisment/>
                         </div>
 
+                        <div className=''>
+                        <Advertisementone/>
+                        </div>
 
+
+                        <div className=''>
+                        <Advertisementone/>
+
+                        </div>
+
+                        
+                        <div className=''>
+                        <Advertisementone/>
+
+                        </div>
+
+                        <div className=''>
+                            <Advertisementtwo/>
+                        </div>
+                           
                     </div>
 
 
@@ -146,10 +180,10 @@ const CategorySectionone = () => {
 
                 {/* <div className='absolute bottom-0 right-72 py-24'>
                     <AnimateCircles color={"#ECECFF"} />
-                </div>
-                 <div className='absolute top-72 left-3 py-24 '>
-                    <AnimateCircles color={"#ECECFF"} />
                 </div> */}
+                 <div className='absolute top-72 left-3 py-24 hidden lg:w-[50%]'>
+                    <AnimateCircles color={"#ECECFF"} />
+                </div>
               
             </div>
 
