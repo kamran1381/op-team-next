@@ -1,19 +1,21 @@
 'use client'
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 
 const CategorySlider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef(null);
-    const images = [
+
+    // useMemo to ensure images are only initialized once
+    const images = useMemo(() => [
         '/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg',
         '/assets/images/weblog header/joshua-aragon-EaB4Ml7C7fE-unsplash.jpg',
         '/assets/images/weblog header/markus-spiske-cvBBO4PzWPg-unsplash.jpg'
-    ];
+    ], []);
 
     const handleClick = useCallback(() => {
         setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, [images]);
+    }, [images.length]); // Only depend on images.length, which is a stable value
 
     useEffect(() => {
         const slider = sliderRef.current;
@@ -32,7 +34,7 @@ const CategorySlider = () => {
         return () => {
             clearInterval(interval);
         };
-    }, [images]);
+    }, [images.length]); // Only depend on images.length, as images array itself is stable
 
     return (
         <div className='relative h-[500px]'>
