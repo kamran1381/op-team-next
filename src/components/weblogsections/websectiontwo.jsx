@@ -81,8 +81,8 @@ const Websectiontwo = () => {
                                 <div key={post.id} className="flex mb-4 pr-2">
                                     <div className="w-20 h-20 mr-3 relative rotate-3 ">
                                         <Image
-                                            onPointerEnter={(e) => e.target.classList.remove('animate-spin')}
-                                            onPointerLeave={(e) => e.target.classList.add('animate-spin')}
+                                            onPointerEnter={(e) => e.target.classList.add('animate-spin')}
+                                            onPointerLeave={(e) => e.target.classList.remove('animate-spin')}
 
                                             src={post.imageUrl}
                                             className='animate-spin object-cover rounded-lg'
