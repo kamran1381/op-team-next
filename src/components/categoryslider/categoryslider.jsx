@@ -50,7 +50,7 @@ const CategorySlider = () => {
                 />
             </div>
 
-            <div className='absolute bottom-5 right-10 flex flex-col items-start space-x-4'>
+            <div className='lg:absolute lg:bottom-5 lg:right-10 absolute bottom-0 right-0 flex flex-col items-start space-x-4'>
                 <div className='lg:w-[500px] lg:h-[300px] relative bg-white rounded-2xl'>
                     <div className='px-3 py-6'>
                         <button className="bg-[#0045CE] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -59,10 +59,10 @@ const CategorySlider = () => {
                     </div>
                    
                     <div className='text-center font-bold'>
-                        <span className='text-2xl text-[#072B82]'>مشکل در بخش زبان فارسی فیگما</span>
-                        <p className='pt-3 text-xs text-[#A6A6A6]'>مشکل در بخش زبان فارسی فیگما زمان مطالعه: 10 دقیقه</p>
-                        <div className='mt-10 flex flex-col text-sm'>
-                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
+                        <span className='lg:text-2xl text-lg text-[#072B82]'>مشکل در بخش زبان فارسی فیگما</span>
+                        <p className='pt-3 text-xs/3 text-[#A6A6A6]'>مشکل در بخش زبان فارسی فیگما زمان مطالعه: 10 دقیقه</p>
+                        <div className='mt-10 flex flex-col lg:text-sm text-xs pb-6'>
+                            <span >برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
                             <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
                         </div>
                     </div>

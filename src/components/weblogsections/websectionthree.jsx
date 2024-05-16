@@ -31,7 +31,7 @@ function Websectionthree() {
         <div className='container '>
             <div className="border-t-2 border-x-slate-700 mx-20 mt-6"></div>
 
-            <div className="lg:w-[85%] w-full mx-auto p-6 bg-white rounded-2xl  shadow-lg mt-10">
+            {/* <div className="lg:w-[85%] w-full mx-auto p-6 bg-white rounded-2xl  shadow-lg mt-10">
                 <div>
                     <div className='flex'>
                         <span className='text-black opacity-25'>برخی از صحبت های شما</span>
@@ -103,7 +103,7 @@ function Websectionthree() {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 
@@ -111,7 +111,7 @@ function Websectionthree() {
 
 
 
-            <div class="flex flex-col lg:flex-row">
+            {/* <div class="flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/2">
                     <div class="py-2">
                         <div class="flex flex-col items-center space-y-2">
@@ -254,7 +254,7 @@ function Websectionthree() {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
 
         </div>
     );

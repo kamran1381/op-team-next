@@ -169,7 +169,8 @@ const CategorySectionone = () => {
 
                         </div>
 
-                        <div className=''>
+                        <div className='pb-10'>
+
                             <Advertisementtwo/>
                         </div>
                            
@@ -181,9 +182,9 @@ const CategorySectionone = () => {
                 {/* <div className='absolute bottom-0 right-72 py-24'>
                     <AnimateCircles color={"#ECECFF"} />
                 </div> */}
-                 <div className='absolute top-72 left-3 py-24 hidden lg:w-[50%]'>
+                 {/* <div className='absolute top-72 left-3 py-24 hidden lg:w-[50%]'>
                     <AnimateCircles color={"#ECECFF"} />
-                </div>
+                </div> */}
               
             </div>
 

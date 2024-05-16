@@ -6,10 +6,9 @@ import Weblogslider from '../weblogslider/weblogslider';
 import Webtwoslider from '../weblogslider/webtwolsider';
 function Websectionone() {
     return (
-        <div className='w-full max-w-7xl my-10 mx-10 lg:p-2 lg:pb-0 relative'>
+        <div className=' w-full max-w-7xl my-10  lg:p-2 lg:pb-0 relative'>
 
-            <Weblogheader />
-            <div className="container mx-auto p-8">
+            <div className="  w-full space-y-3 p-5 z-2">
 
                 <div className="flex justify-center mb-8">
                     <div className="w-full lg:w-3/4">
@@ -36,7 +35,7 @@ function Websectionone() {
                 </div>
 
             </div>
-
+{/* 
             <div className='absolute bottom-1/3 right-3 py-24'>
                 <AnimateCircles color={"#ECECFF"} />
             </div>
@@ -45,7 +44,7 @@ function Websectionone() {
             </div>
             <div className='absolute bottom-60 left-16 py-36'>
                 <AnimateCircles color={"#ECECFF"} />
-            </div>
+            </div> */}
         </div>
     );
 }
