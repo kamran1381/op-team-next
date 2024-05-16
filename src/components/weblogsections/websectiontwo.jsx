@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import AnimateCircles from '../animatecircles';
@@ -78,10 +79,13 @@ const Websectiontwo = () => {
 
                             {posts.map(post => (
                                 <div key={post.id} className="flex mb-4 pr-2">
-                                    <div className="w-20 h-20 mr-3 relative rotate-3">
+                                    <div className="w-20 h-20 mr-3 relative rotate-3 ">
                                         <Image
+                                            onPointerEnter={(e) => e.target.classList.remove('animate-spin')}
+                                            onPointerLeave={(e) => e.target.classList.add('animate-spin')}
+
                                             src={post.imageUrl}
-                                            className='object-cover rounded-lg'
+                                            className='animate-spin object-cover rounded-lg'
                                             layout='fill'
                                             alt='Post Image'
                                         />
