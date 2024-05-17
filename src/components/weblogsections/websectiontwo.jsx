@@ -83,9 +83,8 @@ const Websectiontwo = () => {
                                         <Image
                                             onPointerEnter={(e) => e.target.classList.add('animate-spin')}
                                             onPointerLeave={(e) => e.target.classList.remove('animate-spin')}
-
                                             src={post.imageUrl}
-                                            className='animate-spin object-cover rounded-lg'
+                                            className='object-cover rounded-lg'
                                             layout='fill'
                                             alt='Post Image'
                                         />
