@@ -1,8 +1,9 @@
 'use client'
+'use client';
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 
-const CategorySlider = () => {
+const CategorySlider = React.memo(() => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef(null);
 
@@ -19,10 +20,14 @@ const CategorySlider = () => {
 
     useEffect(() => {
         const slider = sliderRef.current;
-        slider.addEventListener('click', handleClick);
+        if (slider) {
+            slider.addEventListener('click', handleClick);
+        }
 
         return () => {
-            slider.removeEventListener('click', handleClick);
+            if (slider) {
+                slider.removeEventListener('click', handleClick);
+            }
         };
     }, [handleClick]);
 
@@ -62,14 +67,14 @@ const CategorySlider = () => {
                         <span className='lg:text-2xl text-lg text-[#072B82]'>مشکل در بخش زبان فارسی فیگما</span>
                         <p className='pt-3 text-xs/3 text-[#A6A6A6]'>مشکل در بخش زبان فارسی فیگما زمان مطالعه: 10 دقیقه</p>
                         <div className='mt-10 flex flex-col lg:text-sm text-xs pb-6'>
-                            <span >برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
-                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد.... </span>
+                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد....</span>
+                            <span>برخی از مشکلات فیگما را با هم مطالعه خواهیم کرد....</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-};
+});
 
 export default CategorySlider;

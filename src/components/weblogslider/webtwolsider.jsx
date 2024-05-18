@@ -49,7 +49,7 @@ const Webtwoslider = () => {
             فرانت اند
           </button>
         </div>
-        <div className="backdrop-blur-sm  rounded-xl w-full pl-20 py-3 ">
+        <div className="backdrop-blur-[3px] rounded-l-2xl  w-full pl-20 py-3 ">
           <span className="text-white lg:text-md flex pr-3">
             برنامه نویسی وب برنامه نویسی وب
           </span>

@@ -43,7 +43,7 @@ const Websectiontwo = () => {
                 <div className="border-t-2 border-x-slate-700 mx-16"></div>
                 <div className="flex flex-col lg:flex-row w-full gap-4 mt-10">
                     <div className="lg:w-2/3  flex  flex-col   relative lg:pr-16 ">
-                        <div className='lg:w-[85%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative'>
+                        <div className='lg:w-[75%] lg:h-[300px]  w-[100%] h-[300px] shadow-sm relative'>
                             <Image
                                 src='/assets/images/weblog header/fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg'
                                 className='object-cover rounded-xl'
@@ -52,7 +52,7 @@ const Websectiontwo = () => {
                             />
                         </div>
                         <div className='pr-5 py-6'>
-                            <div className='w-[70%] leading-7'> {/* Adjust the width as needed */}
+                            <div className='w-[70%] leading-7'> 
                                 <span className="mt-4 py-3 text-xl font-bold text-[#00004E]">تیم برنامه نویسی اوپی،تیم<br /> خود کفا در حوزه ساخت و<br /> طراحی وب</span>
                                 <p className='text-[#7986A4] pt-4'>
                                     تیم اوپی تاسیس شده در 1402/10/1 ، این تیم تشکیل شده<br /> از چند فریلنسر که تجربه کافی در حوزه برنامه نویسی را دارا<br /> هستند. یک تیم خوش ذوق و خلاق در زمینه ساخت سایت<br /> های شخصی ،شرکتی، فروشگاهی و ... که شعارشان نوآوری و<br /> ایده های ناب هست و از مهم ترین حسن های این تیم نظم و<br /> مسئولیت پذیری است. حسن انتخاب شما سبب رضایت شما<br /> خواهد شد.
