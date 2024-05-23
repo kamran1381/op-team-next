@@ -46,8 +46,7 @@ const SignupForm = () => {
 
         try {
             schema.parse(formData);
-            await axios.get('/sanctum/csrf-cookie');
-            const response = await axios.post('/signup', {
+            const response = await axios.post('https://api.op-team.ir/api/signup', {
                 name: formData.username,
                 email: formData.email,
                 password: formData.password,

@@ -23,17 +23,21 @@ export const handleGoogleLogin = async () => {
 
 export const loginWithCredentials = async (formData) => {
 
-    await axios.get('/sanctum/csrf-cookie');
+   
     try {
-        const response = await axios.post('/login', {
+         
+        const response = await axios.post('https://api.op-team.ir/api/login', {
             email: formData.email,
             password: formData.password
         });
+
         if (response.status === 200) {
             await signIn('credentials', {
                 user: JSON.stringify(response.data.user),
                 redirect: false,
             });
+            console.log(response)
+
             return { message: 'ورود موفق', status: 200 };
         }
 

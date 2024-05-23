@@ -25,24 +25,24 @@ export const authConfig = {
             const isOnLoginPage = request.nextUrl?.pathname.startsWith('/login');
 
 
-            // if (isOnAdminPanel) {
-            //     if (!user) {
-            //         return false;
-            //     }
-            //     if (user && user?.role !== 'admin') {
-            //         return Response.redirect(new URL("/accessdenied", request.nextUrl));
-            //     }
-            // }
+            if (isOnAdminPanel) {
+                if (!user) {
+                    return false;
+                }
+                if (user && user?.role !== 'admin') {
+                    return Response.redirect(new URL("/accessdenied", request.nextUrl));
+                }
+            }
 
 
-            // if (isOnUserPanel && !user) {
-            //     return false;
-            // }
+            if (isOnUserPanel && !user) {
+                return false;
+            }
 
 
-            // if (isOnLoginPage && user) {
-            //     return Response.redirect(new URL("/", request.nextUrl))
-            // }
+            if (isOnLoginPage && user) {
+                return Response.redirect(new URL("/", request.nextUrl))
+            }
 
 
             return true;

@@ -8,7 +8,6 @@ import { useSession } from 'next-auth/react';
 
 const Panelheader = () => {
     const { data: session, status } = useSession();
-    console.log(session);
 
     const path = usePathname();
 

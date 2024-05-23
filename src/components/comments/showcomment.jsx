@@ -1,26 +1,4 @@
-'use client'
-import React from 'react';
-import Image from 'next/image';
-import Inputsendicon from '../icons/inputsendicon';
-import Dislikebutton from '../icons/dislikebutton';
-import Likebutton from '../icons/likebutton';
-import AddComment from '../comments/addcomment';
-import CommentSection from '../comments/commentsection';
-import { useSession } from 'next-auth/react';
-function Websectionthree() {
-    const {data : session , status} = useSession()
-
-    
- 
-    return (
-        <div className='container '>
-            <div className="border-t-2 border-x-slate-700 mx-20 mt-6"></div>
-
-            {session ? <CommentSection /> : <p>لطفا برای دیدن  نظرات وارد خساب کاربری خود شوید</p>}
-
-
-
-            {/* <div class="flex flex-col lg:flex-row">
+           {/* <div class="flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/2">
                     <div class="py-2">
                         <div class="flex flex-col items-center space-y-2">
@@ -164,11 +142,3 @@ function Websectionthree() {
                 </div>
 
             </div> */}
-
-            
-
-        </div>
-    );
-}
-
-export default Websectionthree;
